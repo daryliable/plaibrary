@@ -12,7 +12,6 @@ return [
     | any other location as required by the application or its packages.
     |
     */
-    'key' => env('APP_KEY', 'SomeRandomStringSomeRandomString'),
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
@@ -119,7 +118,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY', 'SomeRandomStringSomeRandomString'),
 
     'cipher' => 'AES-256-CBC',
 
