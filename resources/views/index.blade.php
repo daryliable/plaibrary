@@ -239,7 +239,6 @@
            </div>
 
                   <div class="col-12 text-center pt-5 d-flex justify-content-md-center">
-                   {{ $books->links()}}
                   </div>
 
           </div>
