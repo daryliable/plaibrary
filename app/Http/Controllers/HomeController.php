@@ -19,8 +19,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-       
-        return view('index');
+         $books = Book::join('genre', 'genre.id', 'books.genre_id')->latest()->paginate(6);
+        return view('index', compact('books'));
     }
     public function approval(){
 
