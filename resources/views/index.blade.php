@@ -321,17 +321,17 @@
         <div class="sk-circle11 sk-child"></div>
         <div class="sk-circle12 sk-child"></div>
       </div>
-    </div> -->
+  </div> -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../grandcss/js/jquery-min.js"></script>
-    <script src="../grandcss/js/popper.min.js"></script>
-    <script src="../grandcss/js/bootstrap.min.js"></script> 
-    <script src="../grandcss/js/jquery.easing.min.js"></script>
-    <script src="../grandcss/js/wow.js"></script>
-    <script src="../grandcss/js/jquery.slicknav.js"></script>
-    <script src="../grandcss/js/nivo-lightbox.js"></script>
-    <script src="../grandcss/js/main.js"></script>  
+    <script src="{{ asset('../grandcss/js/jquery-min.js')}}"></script>
+    <script src="{{ asset('../grandcss/js/popper.min.js')}}"></script>
+    <script src="{{ asset('../grandcss/js/bootstrap.min.js')}}"></script> 
+    <script src="{{ asset('../grandcss/js/jquery.easing.min.js')}}"></script>
+    <script src="{{ asset('../grandcss/js/wow.js')}}"></script>
+    <script src="{{ asset('../grandcss/js/jquery.slicknav.js')}}"></script>
+    <script src="{{ asset('../grandcss/js/nivo-lightbox.js')}}"></script>
+    <script src="{{ asset( '../grandcss/js/main.js')}}"></script>  
     <!-- Essential javascripts for login to work-->
     <script src="../logins/js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
     <script src="../logins/js/main.js"></script> <!-- Resource JavaScript -->
