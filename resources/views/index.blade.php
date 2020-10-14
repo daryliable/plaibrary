@@ -234,11 +234,33 @@
           <div class="tile">
             
            <div class="row">
-          
+            @foreach($books as $book)
+              <div class="col-md-4">
+                <div class="bookcard">
+                  <div class="bookimgBox">
+                    <img src="/storage/{{$book->image_url}}">
+                  </div>
+                  <div class="bookdetails">
+                    <h6>{{$book->book_name}}</h6>
+                    <p>
+                      Author: {{$book->book_author}}<br>
+                      Publisher:{{$book->book_publisher}} <br>
+                      Description:{{$book->book_description}} <br>
+                      Genre: {{$book->genre_name}}<br>
+                      Date Published: {{$book->date_published}}
+                    </p>
+                  </div>
+                  <a href="#" class="btn btn-common col-md-12" data-toggle="modal" data-signin="login">Reserve</a>
+                </div>
+
+              </div>
+              
+              @endforeach
               
            </div>
 
                   <div class="col-12 text-center pt-5 d-flex justify-content-md-center">
+                   {{ $books->links()}}
                   </div>
 
           </div>
