@@ -1,4 +1,7 @@
 {    
+    "require-dev": {
+    "heroku/heroku-buildpack-php" : "dev-master"
+    },
 
     "name": "laravel/laravel",
     "type": "project",
