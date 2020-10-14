@@ -17,7 +17,8 @@ class BookController extends Controller
    public function index()
     {
         $category = Genre::all();
-        $book_list = Book::all();
+        $genreID =category->id;
+        $book_list = Book::where('genre_id', $genreID)->get();
 
         return view('admin.bookmanagement', ['books' => $book_list, 'genre' => $category]);
     }
