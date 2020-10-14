@@ -234,7 +234,7 @@
           <div class="tile">
             
            <div class="row">
-            @foreach($books as $book)
+           <!-- @foreach($books as $book)
               <div class="col-md-4">
                 <div class="bookcard">
                   <div class="bookimgBox">
@@ -262,7 +262,7 @@
                   <div class="col-12 text-center pt-5 d-flex justify-content-md-center">
                    {{ $books->links()}}
                   </div>
-
+-->
           </div>
         </div>
 
