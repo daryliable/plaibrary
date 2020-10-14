@@ -17,36 +17,49 @@ class BookController extends Controller
    public function index()
     {
         $category = Genre::all();
-        $book_list = Book::all();
+        $book_list = Book::join('genre', 'genre.id', 'books.genre_id')->get();
 
         return view('admin.bookmanagement', ['books' => $book_list, 'genre' => $category]);
     }
     public function addbook(Request $request)
     { 
-        $data = request()->validate([
-            'bookname' => ['required',''], 
-            'book_quantity' => ['required',''], 
-            'description' => ['required',''],
-            'genre' => ['required',''],
-            'author' => ['required',''],
-            'publisher' => ['required',''],
-            'datepublished' => ['required',''],
-            'image' => ['required','image'],
-        ]);
+            $rules = [
+                'bookname' => 'required',
+                'book_quantity' => 'required',
+                'description' => 'required',
+                'genre' => 'required',
+                'author' => 'required',
+                'publisher' => 'required',
+                'datepublished' => 'required',
+            ];
 
-            $image_path = request('image')->store('uploads', 'public');
-            $image = Image::make(public_path("storage/{$image_path}"))->fit(200, 300);
-            $image->save();
-            $book = Book::Create([
-                'book_name' => $data['bookname'],
-                'book_quantity' => $data['book_quantity'],
-                'book_description' => $data['description'], 
-                'genre_id' => $data['genre'],
-                'book_author' => $data['author'],
-                'book_publisher' => $data['publisher'],
-                'date_published' => $data['datepublished'],
-                'image_url' => $image_path,
-            ]);
+        $book = new Book;
+
+        if ($request->has('book_image')) {
+            $rules['book_image'] = 'mimes:jpeg,jpg,png,gif|required|max:2048';
+        }
+
+        $this->validate($request, $rules);
+
+        if ($request->has('book_image')) {
+             $time = time();
+             $destination =  public_path() . '/images/book_images/' . $time .'_' .  str_replace(' ', '_', $request->file('book_image')->getClientOriginalName());
+             $imageName = $time . '_' . $request->file('book_image')->getClientOriginalName();
+             move_uploaded_file($request->file('book_image'), $destination);
+        }
+
+        if ($request->has('book_image') && $imageName) {
+            $book->image_url = $imageName;
+        }
+
+        $book->book_name = $request->bookname;
+        $book->book_quantity = $request->book_quantity;
+        $book->book_description = $request->description;
+        $book->genre_id = $request->genre;
+        $book->book_author = $request->author;
+        $book->book_publisher = $request->publisher;
+        $book->date_published = $request->datepublished;
+     
         $book->save();
         return back()->with('success', 'Successfully added new book.');
     }

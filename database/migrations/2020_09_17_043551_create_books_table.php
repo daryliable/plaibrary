@@ -21,6 +21,7 @@ class CreateBooksTable extends Migration
             $table->string('book_author')->nullable();
             $table->string('book_publisher')->nullable();
             $table->string('date_published')->nullable();
+            $table->string('image_name')->nullable();
             $table->string('image_url')->nullable();
             $table->integer('book_quantity');   
             $table->timestamps();

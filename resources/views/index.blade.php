@@ -316,7 +316,7 @@
               <div class="col-md-4">
                 <div class="bookcard">
                   <div class="bookimgBox">
-                    <img src="/storage/{{$book->image_url}}">
+                    <img src="{{ URL::asset('images/book_images/' . $book->image_url) }}" width="200" height="300">
                   </div>
                   <div class="bookdetails">
                     <h6>{{$book->book_name}}</h6>

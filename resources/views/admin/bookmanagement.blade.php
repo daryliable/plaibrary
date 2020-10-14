@@ -63,7 +63,7 @@
 
                                 <div class="form-group">
                                   <label for="exampleInputFile">Book Image</label>
-                                  <input class="form-control-file" type="file" name="image" aria-describedby="fileHelp">
+                                  <input class="form-control-file" type="file" name="book_image" aria-describedby="fileHelp">
                                   <small class="form-text text-muted" id="fileHelp">Make sure that book image converted to 100 x 300 inches for better arrangement.
                                   </small>
                                 </div>
