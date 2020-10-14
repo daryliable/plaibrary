@@ -17,7 +17,7 @@ class BookController extends Controller
    public function index()
     {
         $category = Genre::all();
-        $book_list = Book::join('genre', 'genre.id', 'books.id')->get();
+        $book_list = Book::join('genre', 'genre.genre_id', 'books.genre_id')->get();
 
         return view('admin.bookmanagement', ['books' => $book_list, 'genre' => $category]);
     }
@@ -41,7 +41,7 @@ class BookController extends Controller
                 'book_name' => $data['bookname'],
                 'book_quantity' => $data['book_quantity'],
                 'book_description' => $data['description'], 
-                'id' => $data['genre'],
+                'genre_id' => $data['genre'],
                 'book_author' => $data['author'],
                 'book_publisher' => $data['publisher'],
                 'date_published' => $data['datepublished'],
@@ -77,7 +77,7 @@ class BookController extends Controller
             'book_name' => $request->edit_bookname,
             'book_quantity' => $request->edit_book_quantity,
             'book_description' => $request->edit_description,
-            'id' => $request->edit_genre,
+            'genre_id' => $request->edit_genre,
             'book_author' => $request->edit_author,
             'book_publisher' => $request->edit_publisher,
             'date_published' => $request->edit_datepublished,
