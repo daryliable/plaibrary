@@ -17,8 +17,8 @@ class StudentController extends Controller
     public function index(User $user)
     {   
 
-        $books = Book::where('book_quantity', '!=' , 0)->join('genre', 'genre.genre_id', 'books.genre_id')->latest()->paginate(6);
-        $books_notav = Book::where('book_quantity', '=' , 0)->join('genre', 'genre.genre_id', 'books.genre_id')->latest()->paginate(6);
+        $books = Book::where('book_quantity', '!=' , 0)->join('genre', 'genre.id', 'books.genre_id')->latest()->paginate(9);
+        $books_notav = Book::where('book_quantity', '=' , 0)->join('genre', 'genre.id', 'books.genre_id')->latest()->paginate(9);
 
         return view('student.index', compact('books','user','books_notav'));
     }

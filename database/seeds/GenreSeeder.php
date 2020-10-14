@@ -11,35 +11,58 @@ class GenreSeeder extends Seeder
      */
     public function run()
     {
-      Genre::create([
+    \DB::table('genre')->insert(array (
+          0 => 
+            array (
+            'id'             => 1,
             'genre_name'     => 'Arts',
-        ]);
-      Genre::create([
+         ),
+            1 => 
+          array (
+            'id'             => 2,
             'genre_name'     => 'General Work',
-        ]);
-      Genre::create([
+         ),
+            2 => 
+          array (
+            'id'             => 3,
             'genre_name'     => 'History, biography, and geography',
-        ]);
-      Genre::create([
+         ),
+            3 => 
+          array (
+            'id'             => 4,
             'genre_name'     => 'Language',
-        ]);
-      Genre::create([
+         ),
+            4 => 
+          array (
+                 'id'             => 5,
             'genre_name'     => 'Literature and rhetoric',
-        ]);
-      Genre::create([
+         ),
+            5 => 
+          array (
+            'id'             => 6,
             'genre_name'     => 'Natural sciences and mathematics',
-        ]);
-      Genre::create([
+         ),
+            6 => 
+          array (
+            'id'             => 7,
             'genre_name'     => 'Philosophy and Psychology',
-        ]);
-      Genre::create([
+         ),
+            7 => 
+          array (
+            'id'             => 8,
             'genre_name'     => 'Religion',
-        ]);
-      Genre::create([
+         ),
+            8 => 
+          array (
+            'id'             => 9,
             'genre_name'     => 'Social sciences',
-        ]);
-      Genre::create([
+         ),
+            9 => 
+          array (
+            'id'             => 10,
             'genre_name'     => 'Technology',
-        ]);
+         ),
+      ));
+
     }
 }

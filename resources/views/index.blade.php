@@ -56,8 +56,86 @@
         </div>
     </div> -->
 
-        @include('auth.login')
-        @include('auth.register')
+        <div class="cd-signin-modal js-signin-modal"> <!-- this is the entire modal form, including the background -->
+          <div class="cd-signin-modal__container"> <!-- this is the container wrapper -->
+            <ul class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger">
+              <li><a href="#" data-signin="login" data-type="login">Sign in</a></li>
+              <li><a href="#" data-signin="signup" data-type="signup">New account</a></li>
+            </ul>
+
+            <div class="cd-signin-modal__block js-signin-modal-block" data-type="login"> <!-- log in form -->
+              <form class="cd-signin-modal__form" action="{{route('login')}}" method="post">
+                {{ csrf_field() }} 
+                <p class="cd-signin-modal__fieldset">
+                  <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signin-email">E-mail</label>
+                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-email" type="email" name="email" placeholder="E-mail"> 
+                </p>
+
+                <p class="cd-signin-modal__fieldset">
+                  <label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signin-password">Password</label>
+                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-password" type="text" name="password" placeholder="Password">
+                  <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a> 
+                </p> 
+                <p class="cd-signin-modal__fieldset">
+                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Login">
+                </p>
+              </form>
+              
+             </div> <!-- cd-signin-modal__block -->
+
+
+            <div class="cd-signin-modal__block js-signin-modal-block" data-type="signup" > <!-- sign up form -->
+              <form class="cd-signin-modal__form " action="{{ route('register') }}" method="post">
+                {{ csrf_field() }}  
+                  <select class="form-control" name="roles">
+                    <option value="3">Student</option>
+                    <option value="2">Librarian</option>
+                  </select> 
+ 
+                  <input class="form-control" name="uname" type="text" placeholder="Fullname"> 
+ 
+                  <select class="form-control" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select> 
+ 
+                  <input class="form-control" id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="name">
+                  
+    
+                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+
+                  <input class="form-control" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+                  <input class="form-control" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                  <a href="#0" class="cd-signin-modal__hide-password js-hide-password"></a>
+ 
+                  <p class="cd-signin-modal__fieldset">
+                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Create Account">
+                </p>
+                
+              </form>
+            </div> <!-- cd-signin-modal__block -->
+
+            <div class="cd-signin-modal__block js-signin-modal-block" data-type="reset"> <!-- reset password form -->
+              <p class="cd-signin-modal__message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+
+              <form class="cd-signin-modal__form">
+                <p class="cd-signin-modal__fieldset">
+                  <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="reset-email">E-mail</label>
+                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="reset-email" type="email" placeholder="E-mail">
+                  <span class="cd-signin-modal__error">Error message here!</span>
+                </p>
+
+                <p class="cd-signin-modal__fieldset">
+                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="submit" value="Reset password">
+                </p>
+              </form>
+
+              <p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="login">Back to log-in</a></p>
+            </div> <!-- cd-signin-modal__block -->
+            <a href="#0" class="cd-signin-modal__close js-close">Close</a>
+          </div> <!-- cd-signin-modal__container -->
+        </div> <!-- cd-signin-modal -->
+
     <!-- Header Area wrapper Starts -->
     <header id="header-wrap">
       <!-- Navbar Start -->
@@ -229,12 +307,12 @@
             </div>
           </div>
         </div>
-   
+
         <div class="col-md-9">
           <div class="tile">
-            
+          
+          @foreach($books as $book)
            <div class="row">
-            @foreach($books as $book)
               <div class="col-md-4">
                 <div class="bookcard">
                   <div class="bookimgBox">
@@ -244,21 +322,15 @@
                     <h6>{{$book->book_name}}</h6>
                     <p>
                       Author: {{$book->book_author}}<br>
-                      Publisher:{{$book->book_publisher}} <br>
-                      Description:{{$book->book_description}} <br>
-                      Genre: {{$book->genre_name}}<br>
-                      Date Published: {{$book->date_published}}
-                    </p>
+                      Publisher: {{$book->book_publisher}}<br>
+                      Description: {{$book->book_description}}<br>
+                      Genre: {{$book->genre_name}}
+                    </p>      
                   </div>
                   <a href="#" class="btn btn-common col-md-12" data-toggle="modal" data-signin="login">Reserve</a>
                 </div>
-
               </div>
-              
-              @endforeach
-              
-           </div>
-
+            @endforeach
                   <div class="col-12 text-center pt-5 d-flex justify-content-md-center">
                    {{ $books->links()}}
                   </div>
@@ -303,7 +375,7 @@
 
     <!-- Go to Top Link -->
     <a href="#" class="back-to-top">
-    	<i class="lni-chevron-up"></i>
+      <i class="lni-chevron-up"></i>
     </a>
 
     <!-- <div id="preloader">
@@ -321,17 +393,17 @@
         <div class="sk-circle11 sk-child"></div>
         <div class="sk-circle12 sk-child"></div>
       </div>
-  </div> -->
+    </div> -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{ asset('../grandcss/js/jquery-min.js')}}"></script>
-    <script src="{{ asset('../grandcss/js/popper.min.js')}}"></script>
-    <script src="{{ asset('../grandcss/js/bootstrap.min.js')}}"></script> 
-    <script src="{{ asset('../grandcss/js/jquery.easing.min.js')}}"></script>
-    <script src="{{ asset('../grandcss/js/wow.js')}}"></script>
-    <script src="{{ asset('../grandcss/js/jquery.slicknav.js')}}"></script>
-    <script src="{{ asset('../grandcss/js/nivo-lightbox.js')}}"></script>
-    <script src="{{ asset( '../grandcss/js/main.js')}}"></script>  
+    <script src="../grandcss/js/jquery-min.js"></script>
+    <script src="../grandcss/js/popper.min.js"></script>
+    <script src="../grandcss/js/bootstrap.min.js"></script> 
+    <script src="../grandcss/js/jquery.easing.min.js"></script>
+    <script src="../grandcss/js/wow.js"></script>
+    <script src="../grandcss/js/jquery.slicknav.js"></script>
+    <script src="../grandcss/js/nivo-lightbox.js"></script>
+    <script src="../grandcss/js/main.js"></script>  
     <!-- Essential javascripts for login to work-->
     <script src="../logins/js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
     <script src="../logins/js/main.js"></script> <!-- Resource JavaScript -->
