@@ -56,64 +56,8 @@
         </div>
     </div> -->
 
-        <div class="cd-signin-modal js-signin-modal"> <!-- this is the entire modal form, including the background -->
-          <div class="cd-signin-modal__container"> <!-- this is the container wrapper -->
-            <ul class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger">
-              <li><a href="#" data-signin="login" data-type="login">Sign in</a></li>
-              <li><a href="#" data-signin="signup" data-type="signup">New account</a></li>
-            </ul>
-
-            <div class="cd-signin-modal__block js-signin-modal-block" data-type="login"> <!-- log in form -->
-              <form class="cd-signin-modal__form" action="{{route('login')}}" method="post">
-                {{ csrf_field() }} 
-                <p class="cd-signin-modal__fieldset">
-                  <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signin-email">E-mail</label>
-                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-email" type="email" name="email" placeholder="E-mail"> 
-                </p>
-
-                <p class="cd-signin-modal__fieldset">
-                  <label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signin-password">Password</label>
-                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-password" type="text" name="password" placeholder="Password">
-                  <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a> 
-                </p> 
-                <p class="cd-signin-modal__fieldset">
-                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Login">
-                </p>
-              </form>
-              
-             </div> <!-- cd-signin-modal__block -->
-
-
-            <div class="cd-signin-modal__block js-signin-modal-block" data-type="signup" > <!-- sign up form -->
-              <form class="cd-signin-modal__form " action="{{ route('register') }}" method="post">
-                {{ csrf_field() }}  
-                  <select class="form-control" name="roles">
-                    <option value="3">Student</option>
-                    <option value="2">Librarian</option>
-                  </select> 
- 
-                  <input class="form-control" name="uname" type="text" placeholder="Fullname"> 
- 
-                  <select class="form-control" name="gender">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                  </select> 
- 
-                  <input class="form-control" id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="name">
-                  
-    
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
-
-                  <input class="form-control" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
-                  <input class="form-control" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
-                  <a href="#0" class="cd-signin-modal__hide-password js-hide-password"></a>
- 
-                  <p class="cd-signin-modal__fieldset">
-                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Create Account">
-                </p>
-                
-              </form>
-            </div> <!-- cd-signin-modal__block -->
+        @include('auth.login')
+         @include('auth.register')
 
             <div class="cd-signin-modal__block js-signin-modal-block" data-type="reset"> <!-- reset password form -->
               <p class="cd-signin-modal__message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
@@ -169,7 +113,7 @@
                  Profile
                 </a>
               </li>
-              <li class="nav-item">
+                <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}"
                  onclick="event.preventDefault(); 
                  document.getElementById('logout-form').submit();">
@@ -178,13 +122,6 @@
                 @csrf
                 </form>
               </li> 
-
-
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-signin="signup">
-                  Join
-                </a>
-              </li> -->
             </ul>
           </div>
         </div>
@@ -205,7 +142,7 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
                 </form>
-            </li> 
+              </li> 
         </ul>
         <!-- Mobile Menu End -->
 
@@ -326,11 +263,11 @@
 
         <div class="col-md-9">
           <div class="tile">
-          
-          @foreach($books as $book)
-           <form action="reserve_book/{{ $book->id }}" method="POST">
-            @csrf
-           <div class="row">
+            
+     <div class="row">
+            @foreach($books as $book)
+            <form action="reserve_book/{{ $book->id }}" method="POST">
+                @csrf
               <div class="col-md-4">
                 <div class="bookcard">
                   <div class="bookimgBox">
@@ -340,18 +277,20 @@
                     <h6>{{$book->book_name}}</h6>
                     <p>
                       Author: {{$book->book_author}}<br>
-                      Publisher: {{$book->book_publisher}}<br>
-                      Description: {{$book->book_description}}<br>
-                      Genre: {{$book->genre_name}}
+                      Publisher:{{$book->book_publisher}} <br>
+                      Description:{{$book->book_description}} <br>
+                      Genre: {{$book->genre_name}}<br>
+                      Date Published: {{$book->date_published}}
                       <input type="Number" name="book_id" value="{{ $book->id }}" hidden="">
-                    </p>      
+                    </p>
                   </div>
-                  <button class="btn btn-common col-md-12" type="submit">Reserve</button>
+               <button class="btn btn-common col-md-12" type="submit">Reserve</button>
                 </div>
+
               </div>
-              </form>
-            @endforeach
-            @foreach($books_notav as $notav)
+             </form>
+              @endforeach 
+              @foreach($books_notav as $notav)
             <form action="" method="POST" >
               <div class="col-md-4">
                 <div class="bookcard">
@@ -365,6 +304,7 @@
                       Publisher:{{$notav->book_publisher}} <br>
                       Description:{{$notav->book_description}} <br>
                       Genre: {{$notav->genre_name}}<br>
+                      Date Published: {{$notav->date_published}}
                       <input type="Number" name="book_id" value="{{ $notav->id }}" hidden="">
                     </p>
                   </div>
@@ -374,10 +314,12 @@
               </div>
              </form>
               @endforeach
+              </div>
+
                   <div class="col-12 text-center pt-5 d-flex justify-content-md-center">
                    {{ $books->links()}}
                   </div>
-
+            
           </div>
         </div>
 
@@ -418,7 +360,7 @@
 
     <!-- Go to Top Link -->
     <a href="#" class="back-to-top">
-      <i class="lni-chevron-up"></i>
+        <i class="lni-chevron-up"></i>
     </a>
 
     <!-- <div id="preloader">
