@@ -12,4 +12,8 @@ class Genre extends Model
     protected $guarded = []; 
     protected $fillable = [];
     protected $table = 'genre';
+
+    public function book(){
+        return $this->belongsTo(Book::class);
+    }
 }

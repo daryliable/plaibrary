@@ -17,14 +17,14 @@ class BookController extends Controller
    public function index()
     {
         $category = Genre::all();
-        $book_list = Book::all();
+         $book_list = Book::all();
 
         return view('admin.bookmanagement', ['books' => $book_list, 'genre' => $category]);
     }
     public function addbook(Request $request)
     { 
             $rules = [
-                'bookname' => 'required',
+                'bookname' => 'required|unique:books,book_name,',
                 'book_quantity' => 'required',
                 'description' => 'required',
                 'genre' => 'required',
@@ -72,31 +72,46 @@ class BookController extends Controller
     // Edit Book
      public function editBookList(Request $request)
     {
-          $data = request()->validate([
-            'edit_bookname' => ['required',''], 
-            'edit_book_quantity' => ['required',''], 
-            'edit_description' => ['required',''],
-            'edit_genre' => ['required',''],
-            'edit_author' => ['required',''],
-            'edit_publisher' => ['required',''],
-            'edit_datepublished' => ['required',''],
-            'edit_image' => ['required','image'],
-        ]);
-            $image_path = request('edit_image')->store('uploads', 'public');
-            $image = Image::make(public_path("storage/{$image_path}"))->fit(200, 300);
-            $image->save();
+      $rules = [
+                'edit_bookname' => 'required',
+                'edit_book_quantity' => 'required',
+                'edit_description' => 'required',
+                'edit_genre' => 'required',
+                'edit_author' => 'required',
+                'edit_publisher' => 'required',
+                'edit_datepublished' => 'required',
+            ];
 
-            $editBooks = array(
-            'book_name' => $request->edit_bookname,
-            'book_quantity' => $request->edit_book_quantity,
-            'book_description' => $request->edit_description,
-            'genre_id' => $request->edit_genre,
-            'book_author' => $request->edit_author,
-            'book_publisher' => $request->edit_publisher,
-            'date_published' => $request->edit_datepublished,
-            'image_url' => $image_path);
+        $book = new Book;
 
-        $editBookupdate = Book::where ('id',  $request->book_id)->update($editBooks);
+        if ($request->has('book_image')) {
+            $rules['book_image'] = 'mimes:jpeg,jpg,png,gif|required|max:2048';
+        }
+
+        $this->validate($request, $rules);
+
+        if ($request->has('book_image')) {
+             $time = time();
+             $destination =  public_path() . '/images/book_images/' . $time .'_' .  str_replace(' ', '_', $request->file('book_image')->getClientOriginalName());
+             $imageName = $time . '_' . $request->file('book_image')->getClientOriginalName();
+             move_uploaded_file($request->file('book_image'), $destination);
+        }
+
+        $book = [
+                'book_name' => $request->edit_bookname,
+                'book_quantity' => $request->edit_book_quantity,
+                'book_description' => $request->edit_description,
+                'genre_id' => $request->edit_genre,
+                'book_author' => $request->edit_author,
+                'book_publisher' => $request->edit_publisher,
+                'date_published' => $request->edit_datepublished,
+            ];
+
+            if ($request->has('book_image') && $imageName) {
+                $book['image_url'] = $imageName;
+            }
+
+            $editBookupdate = Book::where ('id',  $request->book_id)->update($book);
         return back()->with('success', 'Successfully book updated.');
     }
      // Delete Book

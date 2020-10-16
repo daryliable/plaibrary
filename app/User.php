@@ -41,7 +41,7 @@ class User extends Authenticatable
     ]; 
 
 
-     protected static function boot()
+    /** protected static function boot()
     {
         parent::boot();
 
@@ -50,7 +50,7 @@ class User extends Authenticatable
             'address' => $user->name, 
             ]);
      });
-    }
+    }**/
     
     public function profile(){
     return $this->hasOne(Profile::class);

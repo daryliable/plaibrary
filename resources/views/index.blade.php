@@ -311,8 +311,9 @@
         <div class="col-md-9">
           <div class="tile">
           
-          @foreach($books as $book)
+          
            <div class="row">
+            @foreach($books as $book )
               <div class="col-md-4">
                 <div class="bookcard">
                   <div class="bookimgBox">
@@ -324,10 +325,14 @@
                       Author: {{$book->book_author}}<br>
                       Publisher: {{$book->book_publisher}}<br>
                       Description: {{$book->book_description}}<br>
-                      Genre: {{$book->genre_name}}
+                      Genre: {{ $book->genre->genre_name }}
                     </p>      
                   </div>
+                  @if(!is_null($book) && $book->book_quantity != 0)
                   <a href="#" class="btn btn-common col-md-12" data-toggle="modal" data-signin="login">Reserve</a>
+                  @else
+                  <button class="btn btn-common col-md-12" type="submit" disabled="">Not Available</button>
+                  @endif
                 </div>
               </div>
             @endforeach

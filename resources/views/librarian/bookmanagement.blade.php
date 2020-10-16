@@ -62,7 +62,7 @@
 
                                 <div class="form-group">
                                   <label for="exampleInputFile">Book Image</label>
-                                  <input class="form-control-file" type="file" name="image" aria-describedby="fileHelp">
+                                  <input class="form-control-file" type="file" name="book_image" aria-describedby="fileHelp">
                                   <small class="form-text text-muted" id="fileHelp">Make sure that book image converted to 100 x 300 inches for better arrangement.
                                   </small>
                                 </div>
@@ -114,7 +114,7 @@
                                   <input type="text" class="form-control" name="edit_bookname" placeholder="Book Name" required="required" value="{{ $row->book_name }}">
                                 </div>
                                 <div class="form-group">
-                                  <input type="number" class="form-control" name="edit_book_quantity" placeholder="Quantity" required="required">
+                                  <input type="number" class="form-control" name="edit_book_quantity" placeholder="Quantity" required="required"  value="{{ $row->book_quantity }}">
                                 </div>
                                 <div class="form-group">
                                   <label for="description">Book Description</label>
@@ -144,7 +144,7 @@
 
                                 <div class="form-group">
                                   <label for="exampleInputFile">Book Image</label>
-                                  <input class="form-control-file" type="file" name="edit_image" aria-describedby="fileHelp" value="{{ $row->image_url }}">
+                                  <input class="form-control-file" type="file" name="book_image" aria-describedby="fileHelp" value="{{ $row->image_url }}">
                                   <small class="form-text text-muted" id="fileHelp">
                                   </small>
                                 </div>
@@ -164,7 +164,7 @@
                     <td>{{ $row->id }}</td>
                     <td>{{ $row->book_name }}</td>
                     <td>{{ $row->book_description }}</td>
-                    <td>{{ $row->genre_name }}</td>
+                    <td>{{ $row->genre->genre_name }}</td>
                     <td>{{ $row->book_author }}</td>
                     <td>{{ $row->book_publisher }}</td>
                     <td>{{ $row->date_published }}</td>

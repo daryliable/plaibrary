@@ -44,7 +44,7 @@ class ProfileController extends Controller
         ]);
 
         $user->profile->update($data);
-        return redirect()->route('student.profile.show')->with('success', 'Successfully updated profile.');;
+        return redirect()->route('student.profile.show')->with('success', 'Successfully updated profile.');
     }
        public function updatepassword(Request $request, User $user){
         $id = Auth::user()->id;

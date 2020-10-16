@@ -17,9 +17,8 @@ class StudentController extends Controller
     public function index(User $user)
     {   
 
-        $books = Book::where('book_quantity', '!=' , 0)->latest()->paginate(9);
-        $books_notav = Book::where('book_quantity', '=' , 0)->latest()->paginate(9);
-        return view('student.index', compact('books','user','books_notav'));
+        $books = Book::where('id', '>' , 0)->latest()->paginate(9);
+        return view('student.index', compact('books'));
     }
 
     public function reserve(Reservation $reservation, Book $book){
@@ -28,6 +27,6 @@ class StudentController extends Controller
         $reservation->book_id = request('book_id');
         $book->save();
         $reservation->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Successfully reserve book: '. $book->book_name);
     }
 }

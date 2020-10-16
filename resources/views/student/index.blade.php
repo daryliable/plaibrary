@@ -325,16 +325,18 @@
         </div>
 
         <div class="col-md-9">
+          @include('admin.includes.success')
+          @include('admin.includes.error')
           <div class="tile">
-          
+            
+           <div class="row">
           @foreach($books as $book)
            <form action="reserve_book/{{ $book->id }}" method="POST">
             @csrf
-           <div class="row">
-              <div class="col-md-4">
+             <div class="col-md-4">
                 <div class="bookcard">
                   <div class="bookimgBox">
-                    <img src="/storage/{{$book->image_url}}">
+                    <img src="{{ URL::asset('images/book_images/' . $book->image_url) }}" width="200" height="300">
                   </div>
                   <div class="bookdetails">
                     <h6>{{$book->book_name}}</h6>
@@ -342,38 +344,19 @@
                       Author: {{$book->book_author}}<br>
                       Publisher: {{$book->book_publisher}}<br>
                       Description: {{$book->book_description}}<br>
-                      Genre: {{$book->genre_name}}
-                      <input type="Number" name="book_id" value="{{ $book->id }}" hidden="">
+                      Genre: {{ $book->genre->genre_name }}
                     </p>      
                   </div>
-                  <button class="btn btn-common col-md-12" type="submit">Reserve</button>
+                  @if(!is_null($book) && $book->book_quantity != 0)
+                  <button class="btn btn-common col-md-12" type="submit" >Reserve</button>
+                  @else
+                  <button class="btn btn-common col-md-12" type="submit" disabled="">Not Available</button>
+                  @endif
                 </div>
               </div>
               </form>
             @endforeach
-            @foreach($books_notav as $notav)
-            <form action="" method="POST" >
-              <div class="col-md-4">
-                <div class="bookcard">
-                  <div class="bookimgBox">
-                    <img src="/storage/{{$notav->image_url}}">
-                  </div>
-                  <div class="bookdetails">
-                    <h6>{{$notav->book_name}}</h6>
-                    <p>
-                      Author: {{$notav->book_author}}<br>
-                      Publisher:{{$notav->book_publisher}} <br>
-                      Description:{{$notav->book_description}} <br>
-                      Genre: {{$notav->genre_name}}<br>
-                      <input type="Number" name="book_id" value="{{ $notav->id }}" hidden="">
-                    </p>
-                  </div>
-               <button class="btn btn-common col-md-12" type="submit" disabled="">Not Available</button>
-                </div>
-
-              </div>
-             </form>
-              @endforeach
+          
                   <div class="col-12 text-center pt-5 d-flex justify-content-md-center">
                    {{ $books->links()}}
                   </div>
