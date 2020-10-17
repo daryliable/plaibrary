@@ -32,11 +32,11 @@ Route::get('/view/user/{user}', 'Admin\UserController@viewuser_prof')->name('vie
 Route::get('/viewprof/{user}/edit', 'Admin\UserController@edituser_prof');
 Route::patch('/update_userprof/{user}', 'Admin\UserController@update_userprof');
 
-////////////////Start Reservation View////////////////
+////////////////Start pending Reservation View////////////////
 Route::get('/pendingreservation', 'Admin\ReservationController@pending');
 Route::get('/approve_reservation', 'Admin\ReservationController@list_approved');
 Route::get('/reserved/{reservation}', 'Admin\ReservationController@approve');
-Route::get('/cancelres/{id}', 'Admin\ReservationController@cancel_reservation');
+Route::get('/delete/reservation/{id}', 'Admin\ReservationController@cancel_reservation');
 ////////////////Start pendning View////////////////
 Route::get('/pendinguser', 'Admin\UserApprovalController@index');
 Route::get('/approved/{user}', 'Admin\UserApprovalController@approve');

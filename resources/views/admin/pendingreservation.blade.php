@@ -44,7 +44,7 @@
                     <th>{{ $reservation->notes }}</th>
                      <td>
                       <a href="/reserved/{{$reservation->id}}" type="button" class="btn btn-success">Accepts</a>
-                      <a href="/cancelres/{{$reservation->id}}" type="button" class="btn btn-danger">Reject</a>
+                      <a href="/delete/reservation/{{$reservation->id}}" type="button" class="btn btn-danger">Reject</a>
                     </td>
                   </tr>
                
