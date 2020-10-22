@@ -33,7 +33,7 @@
                                   <input type="text" class="form-control" name="bookname" placeholder="Book Name" required="required">
                                 </div>
                                  <div class="form-group">
-                                  <input type="number" class="form-control" name="book_quantity" placeholder="Quantity" required="required">
+                                  <input type="number" class="form-control" name="book_quantity" placeholder="Number of Copies" required="required">
                                 </div>
                                 <div class="form-group">
                                   <label for="description">Book Description</label>
@@ -94,7 +94,7 @@
                     <th>Book Author</th>
                     <th>Publisher</th>
                     <th>Date Published</th>
-                    <th>Quantity</th>
+                    <th>Number of Copies</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -115,7 +115,7 @@
                                   <input type="text" class="form-control" name="edit_bookname" placeholder="Book Name" required="required" value="{{ $row->book_name }}">
                                 </div>
                                 <div class="form-group">
-                                  <input type="number" class="form-control" name="edit_book_quantity" placeholder="Quantity" required="required" value="{{ $row->book_quantity }}">
+                                  <input type="number" class="form-control" name="edit_book_quantity" placeholder="Number of copies" required="required" value="{{ $row->book_quantity }}">
                                 </div>
                                 <div class="form-group">
                                   <label for="description">Book Description</label>
@@ -172,9 +172,27 @@
                     <td>{{ $row->book_quantity }}</td>
                     <td>
                        <a data-toggle="modal" href="#editBook{{ $row->id }}"> <span class="badge badge-success" ><i class="fa fa-edit fa-2x"></i></span> </a>
-                       <a href="deleteBook/{{ $row->id }}"> <span class="badge badge-danger"><i class="fa fa-trash-o fa-2x"></i></span> </a>
+                       <a href="#myModal" data-toggle="modal"> <span class="badge badge-danger"><i class="fa fa-trash-o fa-2x"></i></span> </a>
                     </td>
                   </tr>
+                  <div id="myModal" class="modal fade">
+                        <div class="modal-dialog modal-confirm">
+                          <div class="modal-content">
+                            <div class="modal-header flex-column">
+                              <div class="icon-box">
+                              </div>            
+                              <h4 class="modal-title w-100">Are you sure?</h4>  
+                            </div>
+                            <div class="modal-body">
+                              <p>Do you really want to delete these records? This process cannot be undone.</p>
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                              <a href="deleteBook/{{ $row->id }}" class="btn btn-danger" type="button">Delete</a> 
+                            </div>
+                          </div>
+                        </div>
+                      </div>  
                   @endforeach
                
                 </tbody>

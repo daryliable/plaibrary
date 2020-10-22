@@ -3,7 +3,7 @@
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-th-list"></i> Book Management</h1>
+          <h1><i class="fa fa-th-list"></i> Pending Appointment</h1>
         </div> 
       </div>
       @include('admin.includes.success')
@@ -13,50 +13,40 @@
           <div class="tile">
             <div class="tile-body">
               <!-- <button type="button" class="btn btn-primary pull-right" style="margin: 2px"><span class="badge"><i class="fa fa-plus"></i></span> Patient</button> -->
-               
-
-                  
-
-
-                  <!-- For Edit -->
-              
-              <table class="table table-hover table-bordered" id="sampleTable">
+               <table class="table table-hover table-bordered" id="sampleTable">
                 <thead>
 
                   <tr>
                     <th>Reservation ID</th>
                     <th>Book ID</th>
                     <th>User ID</th>
-                    <th>Rervation Date</th>
-                    <th>Reservation Expiration</th>
-                    <th>Notes</th>
-                    <th>Action</th>
+                    <th>Appointment Date</th>
+                    <th>Univeristy/Institution</th>
+                    <th>Remarks</th>
+                    
                   </tr>
                 </thead>
-                @foreach($reservations as $reservation)
                 <tbody>
-                 <tr>
-                    <th>{{ $reservation->id}}</th>
-                    <th>{{ $reservation->book_id }}</th>
-                    <th>{{ $reservation->user_id }}</th>
-                    <th>{{ $reservation->created_at }}</th>
-                    <th>{{ $reservation->expiry_date }}</th>
-                    <th>{{ $reservation->notes }}</th>
+                  @foreach($reservations as $reservation)
+                   <tr>
+                    <td>{{ $reservation->id}}</td>
+                    <td>{{ $reservation->book_id }}</td>
+                    <td>{{ $reservation->user_id }}</td>
+                    <td>{{ $reservation->created_at }}</td>
+                    <td>a</td>
                      <td>
                       <a href="/reserved/{{$reservation->id}}" type="button" class="btn btn-success">Accepts</a>
                       <a href="/delete/reservation/{{$reservation->id}}" type="button" class="btn btn-danger">Reject</a>
                     </td>
                   </tr>
+                  @endforeach
                
                 </tbody>
-                @endforeach
               </table>
               </div>
-
           </div>
         </div>
       </div>
-
     </main>
 @include ('admin.includes.footer')
 

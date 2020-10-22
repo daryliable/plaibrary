@@ -41,16 +41,16 @@ class User extends Authenticatable
     ]; 
 
 
-    /** protected static function boot()
+     protected static function boot()
     {
         parent::boot();
 
         static::created(function ($user){
             $user->profile()->create([
-            'address' => $user->name, 
+            'address' => ' ', 
             ]);
      });
-    }**/
+    }
     
     public function profile(){
     return $this->hasOne(Profile::class);

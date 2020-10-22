@@ -3,7 +3,7 @@
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-th-list"></i> Book Management</h1>
+          <h1><i class="fa fa-th-list"></i> Appointment </h1>
         </div> 
       </div>
       
@@ -22,9 +22,9 @@
                     <th>Reservation ID</th>
                     <th>Book ID</th>
                     <th>User ID</th>
-                    <th>Rervation Date</th>
-                    <th>Reservation Expiration</th>
-                    <th>Notes</th>
+                    <th>Appointment Date</th>
+                    <th>University/Institution</th>
+                 
 
                   </tr>
                 </thead>
@@ -35,8 +35,7 @@
                     <th>{{ $reservation->book_id }}</th>
                     <th>{{ $reservation->user_id }}</th>
                     <th>{{ $reservation->created_at }}</th>
-                    <th>{{ $reservation->expiry_date }}</th>
-                    <th>{{ $reservation->notes }}</th>
+                    <th>{{ $reservation->expiry_date }}</th>          
                                      </tr>
                
                 </tbody>

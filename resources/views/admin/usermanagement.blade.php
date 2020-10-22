@@ -149,7 +149,7 @@
                       </div>
                   </div>
                    <tr>
-                    <td>{{ $user->id }}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->created_at }}</td>
@@ -157,9 +157,28 @@
                     <td>
                       <a href="view/user/{{$user->id}}"> <span class="badge badge-succesr"><i class="fa fa-address-card fa-2x"></i></span> </a>
                 
-                       <a href="deleteuser/{{ $user->id }}"> <span class="badge badge-danger"><i class="fa fa-trash-o fa-2x"></i></span> </a>
+                       <a href="#myModal" data-toggle="modal">  <span class="badge badge-danger"><i class="fa fa-trash-o fa-2x"></i></span> </a>
                     </td>
                   </tr>
+    
+                    <div id="myModal" class="modal fade">
+                        <div class="modal-dialog modal-confirm">
+                          <div class="modal-content">
+                            <div class="modal-header flex-column">
+                              <div class="icon-box">
+                              </div>            
+                              <h4 class="modal-title w-100">Are you sure?</h4>  
+                            </div>
+                            <div class="modal-body">
+                              <p>Do you really want to delete these records? This process cannot be undone.</p>
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                              <a href="deleteuser/{{ $user->id }}" class="btn btn-danger" type="button">Delete</a> 
+                            </div>
+                          </div>
+                        </div>
+                      </div>  
                   @endforeach
                      
                 </tbody>

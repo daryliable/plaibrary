@@ -21,7 +21,7 @@
                   <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Gender</th>
+                    <th>Role</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -29,7 +29,7 @@
               <tbody>
                <td>{{ $user->name }}</td>
                <td>{{ $user->email }}</td>
-               <td>{{ $user->profile->gender }}</td>
+               <td>{{ $user->roles->implode('name') }}</td>
                <td>
                   <a href="approved/{{ $user->id }}" type="button" class="btn btn-success">Accepts</a>
                   <a href="removereq/{{ $user->id }}" type="button" class="btn btn-danger">Reject</a>

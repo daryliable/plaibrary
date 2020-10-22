@@ -9,8 +9,8 @@
       </div>
       <ul class="app-menu ">
         <li class=""><a class="app-menu__item {{ Request::path() ==  'superadmin/dashboard' ? 'active' : ''  }} " href="{{ route('superadmin.dashboard') }}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-          <li class=""><a class="app-menu__item {{ Request::path() ==  'pendingreservation' ? 'active' : ''  }}" href="{{ url('/pendingreservation')}}"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Pending Reservation</span></a></li>
-           <li class=""><a class="app-menu__item {{ Request::path() ==  'approve_reservation' ? 'active' : ''  }}" href="{{ url('/approve_reservation')}}"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Reserved</span></a></li>
+          <li class=""><a class="app-menu__item {{ Request::path() ==  'pending/appointment' ? 'active' : ''  }}" href="{{ url('/pending/appointment')}}"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Pending Appointment</span></a></li>
+           <li class=""><a class="app-menu__item {{ Request::path() ==  'appointment' ? 'active' : ''  }}" href="{{ url('/appointment')}}"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Appointment</span></a></li>
           <!-- <ul class="treeview-menu">
             <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Add Books</a></li>
             <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Font Icons</a></li>

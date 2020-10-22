@@ -8,24 +8,24 @@
     <title>Plaibrary</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="../grandcss/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/bootstrap.min.css')}}" >
     <!-- Icon -->
-    <link rel="stylesheet" type="text/css" href="../grandcss/fonts/line-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/fonts/line-icons.css')}}">
     <!-- Slicknav -->
-    <link rel="stylesheet" type="text/css" href="../grandcss/css/slicknav.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/slicknav.css')}}">
     <!-- Nivo Lightbox -->
-    <link rel="stylesheet" type="text/css" href="../grandcss/css/nivo-lightbox.css" >
+    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/nivo-lightbox.css')}}" >
     <!-- Animate -->
-    <link rel="stylesheet" type="text/css" href="../grandcss/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/animate.css')}}">
     <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="../grandcss/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/main.css')}}">
     <!-- Responsive Style -->
-    <link rel="stylesheet" type="text/css" href="../grandcss/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/responsive.css')}}">
 
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('../css/main.css')}}">
 
     <!-- <link rel="stylesheet" type="text/css" href="../logins/css/reset.css"> --> <!-- CSS reset -->
-    <link rel="stylesheet" type="text/css" href="../logins/css/style.css"> <!-- Resource style -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('../logins/css/style.css')}}"> <!-- Resource style -->
     <!-- <link rel="stylesheet" type="text/css" href="../logins/css/demo.css"> --> <!-- Demo style -->
 
   </head>
@@ -55,17 +55,17 @@
           </div>
         </div>
     </div> -->
-
+        
         <div class="cd-signin-modal js-signin-modal"> <!-- this is the entire modal form, including the background -->
           <div class="cd-signin-modal__container"> <!-- this is the container wrapper -->
             <ul class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger">
               <li><a href="#" data-signin="login" data-type="login">Sign in</a></li>
               <li><a href="#" data-signin="signup" data-type="signup">New account</a></li>
             </ul>
-
             <div class="cd-signin-modal__block js-signin-modal-block" data-type="login"> <!-- log in form -->
               <form class="cd-signin-modal__form" action="{{route('login')}}" method="post">
                 {{ csrf_field() }} 
+                @include('includes.error')
                 <p class="cd-signin-modal__fieldset">
                   <label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signin-email">E-mail</label>
                   <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-email" type="email" name="email" placeholder="E-mail"> 
@@ -80,9 +80,8 @@
                   <input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Login">
                 </p>
               </form>
-              
              </div> <!-- cd-signin-modal__block -->
-
+           
 
             <div class="cd-signin-modal__block js-signin-modal-block" data-type="signup" > <!-- sign up form -->
               <form class="cd-signin-modal__form " action="{{ route('register') }}" method="post">
@@ -90,9 +89,7 @@
                   <select class="form-control" name="roles">
                     <option value="3">Student</option>
                     <option value="2">Librarian</option>
-                  </select> 
- 
-                  <input class="form-control" name="uname" type="text" placeholder="Fullname"> 
+                  </select>  
  
                   <select class="form-control" name="gender">
                     <option value="Male">Male</option>
@@ -401,17 +398,17 @@
     </div> -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../grandcss/js/jquery-min.js"></script>
-    <script src="../grandcss/js/popper.min.js"></script>
-    <script src="../grandcss/js/bootstrap.min.js"></script> 
-    <script src="../grandcss/js/jquery.easing.min.js"></script>
-    <script src="../grandcss/js/wow.js"></script>
-    <script src="../grandcss/js/jquery.slicknav.js"></script>
-    <script src="../grandcss/js/nivo-lightbox.js"></script>
-    <script src="../grandcss/js/main.js"></script>  
+    <script src="{{ asset('../grandcss/js/jquery-min.js')}}"></script>
+    <script src="{{ asset('../grandcss/js/popper.min.js')}}"></script>
+    <script src="{{ asset('../grandcss/js/bootstrap.min.js')}}"></script> 
+    <script src="{{ asset('../grandcss/js/jquery.easing.min.js')}}"></script>
+    <script src="{{ asset('../grandcss/js/wow.js')}}"></script>
+    <script src="{{ asset('../grandcss/js/jquery.slicknav.js')}}"></script>
+    <script src="{{ asset('../grandcss/js/nivo-lightbox.js')}}"></script>
+    <script src="{{ asset('../grandcss/js/main.js')}}"></script>  
     <!-- Essential javascripts for login to work-->
-    <script src="../logins/js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
-    <script src="../logins/js/main.js"></script> <!-- Resource JavaScript -->
+    <script src="{{ asset('../logins/js/placeholders.min.js')}}"></script> <!-- polyfill for the HTML5 placeholder attribute -->
+    <script src="{{ asset('../logins/js/main.js')}}"></script> <!-- Resource JavaScript -->
       
   </body>
 </html>

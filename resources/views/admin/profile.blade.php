@@ -32,8 +32,6 @@
 
               <div class="col-6">
                  <h4> Basic Info</h4>
-
-
                  <div class="form-row">
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -87,15 +85,38 @@
                     </div>
                     </div>
                   </div>
-                  
-
-                  <div class="col-6">
-                     <h4></h4>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                    <a href="{{ route('admin.profile.edit')}}" class="btn btn-primary">Edit Profile</a>
-                </div>
+                  <div class="col-6" >
+                              <h4>Profile</h4>
+                                  <div class="form-row">
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">Designation</span>
+                                        </div>
+                                         <input type="text" class="form-control" placeholder="Address" name="Designation" value="{{$user->profile->address ?? ''}}" disabled> 
+                                    </div>
+                                 </div>
+                                <br><div class="form-row">
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">Occupation</span>
+                                        </div>
+                                         <input type="text" class="form-control" placeholder="Address" name="Occupation" value="{{$user->profile->address ?? ''}}" disabled> 
+                                    </div>
+                                 </div>
+                                 
+                                  <br><div class="form-row">
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">College/University</span>
+                                        </div>
+                                         <input type="text" class="form-control" placeholder="Address" name="College_University" value="{{$user->profile->address ?? ''}}" disabled> 
+                                    </div>
+                                 </div>
+                              </div>
+                            </div>       
+                            <div class="modal-footer">
+                                <a href="{{ route('admin.profile.edit')}}" class="btn btn-primary">Edit Profile</a>
+                            </div>
                  </form>
               </div>
 

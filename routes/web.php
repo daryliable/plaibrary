@@ -33,8 +33,8 @@ Route::get('/viewprof/{user}/edit', 'Admin\UserController@edituser_prof');
 Route::patch('/update_userprof/{user}', 'Admin\UserController@update_userprof');
 
 ////////////////Start pending Reservation View////////////////
-Route::get('/pendingreservation', 'Admin\ReservationController@pending');
-Route::get('/approve_reservation', 'Admin\ReservationController@list_approved');
+Route::get('/pending/appointment', 'Admin\ReservationController@pending');
+Route::get('/appointment', 'Admin\ReservationController@list_approved');
 Route::get('/reserved/{reservation}', 'Admin\ReservationController@approve');
 Route::get('/delete/reservation/{id}', 'Admin\ReservationController@cancel_reservation');
 ////////////////Start pendning View////////////////

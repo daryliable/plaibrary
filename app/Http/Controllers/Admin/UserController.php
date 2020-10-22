@@ -17,9 +17,11 @@ class UserController extends Controller
     }
     public function index()
     {
-        
+        $authorizedRoles = ['student', 'librarian'];
         $roles = Role::all();
-        $users = User::where('approved', '=' , 1)->latest()->get();
+        $users = User::whereHas('roles', static function ($query) use ($authorizedRoles) {
+                    return $query->whereIn('name', $authorizedRoles);
+                })->where('approved', '=', 1)->get();
         return view('admin.usermanagement', ['users' => $users,'roles'=> $roles ]);
     }
 
@@ -75,6 +77,6 @@ class UserController extends Controller
         ]);
 
         $user->profile->update($data);
-        return redirect("/viewprof/$user->id")->with('success', 'Successfully updated user.'); ;
+        return redirect("/viewprof/$user->id")->with('success', 'Successfully updated user.');
     }
 }
