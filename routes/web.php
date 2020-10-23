@@ -43,7 +43,7 @@ Route::get('/approved/{user}', 'Admin\UserApprovalController@approve');
 Route::get('/removereq/{id}', 'Admin\UserApprovalController@reject_user');
 ////////////////Start view own profile////////////////
 Route::get('/admin/profile/', 'Admin\ProfileController@index')->name('admin.profile.show');
-Route::get('/admin/profile/edit', 'Admin\ProfileController@edit')->name('admin.profile.edit');
+Route::get('/admin/edit', 'Admin\ProfileController@edit')->name('admin.profile.edit');
 Route::patch('/admin/profile/update', 'Admin\ProfileController@update')->name('admin.profile.update');
 Route::patch('/admin/password/update', 'Admin\ProfileController@updatepassword')->name('admin.profile.updatepassword');
 

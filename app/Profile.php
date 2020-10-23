@@ -10,7 +10,7 @@ class Profile extends Model
     const created_at = null;
     public $timestamps = true;
     protected $guarded = []; 
-    protected $fillable = [];
+    protected $fillable = ['gender','civil', 'birthdate','address','contact_num','designation','occupation','coll_univ','image_url'];
     protected $table = 'profiles';
 
     public function user(){

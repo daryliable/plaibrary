@@ -7,7 +7,7 @@
           <h1><i class="fa fa-user"></i> Edit Profile</h1>
         </div> 
       </div>
-
+ @include('admin.includes.error')
       <div class="row">
       <div class="col-md-12">
       <div class="tile">
@@ -22,9 +22,9 @@
       <div class="tab-content" id="myTabContent"> 
           <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <br>
-            <form  action="{{ route('admin.profile.update')}}" method="post">
+            <form  action="{{ route('admin.profile.update')}}" method="post" enctype="multipart/form-data">
             <div class="row">
-              @csrf
+                @csrf
                 @method('PATCH')
               <div class="col-6">
                  <h4> Basic Info</h4>
@@ -93,7 +93,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Profile picture</span>
                         </div>
-                            <input class="form-control" type="file" name="image" aria-describedby="fileHelp"> 
+                            <input class="form-control" type="file" name="profile" aria-describedby="fileHelp"> 
                       </div>
                     </div>
 
@@ -102,7 +102,7 @@
                               <div class="input-group-prepend">
                                   <span class="input-group-text">Designation</span>
                               </div>
-                              <input type="text" class="form-control" placeholder="Address" name="Designation" value="{{$user->profile->address ?? ''}}" > 
+                              <input type="text" class="form-control" placeholder="Designation" name="designation" value="{{$user->profile->designation ?? ''}}" > 
                           </div>
                         </div>
 
@@ -111,7 +111,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Occupation</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Address" name="Occupation" value="{{$user->profile->address ?? ''}}" > 
+                                <input type="text" class="form-control" placeholder="Occupation" name="occupation" value="{{$user->profile->occupation ?? ''}}" > 
                             </div>
                           </div>
                                  
@@ -120,7 +120,7 @@
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">College/University</span>
                                         </div>
-                                         <input type="text" class="form-control" placeholder="Address" name="College_University" value="{{$user->profile->address ?? ''}}" > 
+                                         <input type="text" class="form-control" placeholder="College/University" name="coll_univ" value="{{$user->profile->coll_univ ?? ''}}" > 
                                     </div>
                                  </div>
                   </div>

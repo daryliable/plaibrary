@@ -92,7 +92,7 @@
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">Designation</span>
                                         </div>
-                                         <input type="text" class="form-control" placeholder="Address" name="Designation" value="{{$user->profile->address ?? ''}}" disabled> 
+                                         <input type="text" class="form-control" placeholder="" name="Designation" value="{{$user->profile->designation ?? ''}}" disabled> 
                                     </div>
                                  </div>
                                 <br><div class="form-row">
@@ -100,7 +100,7 @@
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">Occupation</span>
                                         </div>
-                                         <input type="text" class="form-control" placeholder="Address" name="Occupation" value="{{$user->profile->address ?? ''}}" disabled> 
+                                         <input type="text" class="form-control" placeholder="" name="Occupation" value="{{$user->profile->occupation ?? ''}}" disabled> 
                                     </div>
                                  </div>
                                  
@@ -109,7 +109,7 @@
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">College/University</span>
                                         </div>
-                                         <input type="text" class="form-control" placeholder="Address" name="College_University" value="{{$user->profile->address ?? ''}}" disabled> 
+                                         <input type="text" class="form-control" placeholder="" name="College_University" value="{{$user->profile->coll_univ ?? ''}}" disabled> 
                                     </div>
                                  </div>
                               </div>
