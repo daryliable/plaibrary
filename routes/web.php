@@ -24,23 +24,36 @@ Route::post('/addbook', 'Admin\BookController@addbook');
 Route::get('/editBook', 'Admin\BookController@editBook');
 Route::post('/editBookList', 'Admin\BookController@editBookList');
 Route::get('/deleteBook/{id}', 'Admin\BookController@deleteBook');
+
 ////////////////Start user Management View////////////////
-Route::get('/users', 'Admin\UserController@index');
-Route::post('/adduser', 'Admin\UserController@adduser'); 
-Route::get('/deleteuser/{id}', 'Admin\UserController@delete_user');
-Route::get('/view/user/{user}', 'Admin\UserController@viewuser_prof')->name('view.user.profile');
-Route::get('/viewprof/{user}/edit', 'Admin\UserController@edituser_prof');
-Route::patch('/update_userprof/{user}', 'Admin\UserController@update_userprof');
+Route::get('/create/users', 'Admin\UserCreateController@index')->name('create.view.user');
+Route::post('/adduser', 'Admin\UserCreateController@adduser'); 
+
+//////////////// Student View////////////////
+Route::get('/students', 'Admin\StudentController@index')->name('view.list.student');
+Route::get('/deleteuser/{id}', 'Admin\StudentController@delete_user');
+Route::get('/user/{user}', 'Admin\StudentController@viewuser_prof');
+Route::get('/viewprof/{user}/edit', 'Admin\StudentController@edituser_prof');
+Route::patch('/update_userprof/{user}', 'Admin\StudentController@update_userprof');
+
+//////////////// librarian View////////////////
+Route::get('/librarians', 'Admin\LibrarianController@index')->name('view.list.librarian'); 
+Route::get('/deleteuser/{id}', 'Admin\LibrarianController@delete_user');
+Route::get('/librarian/{user}', 'Admin\LibrarianController@viewuser_prof');
+Route::get('/Lib_viewprof/{user}', 'Admin\LibrarianController@edituser_prof');
+Route::patch('/update_libprof/{user}', 'Admin\LibrarianController@update_userprof');
 
 ////////////////Start pending Reservation View////////////////
 Route::get('/pending/appointment', 'Admin\ReservationController@pending');
 Route::get('/appointment', 'Admin\ReservationController@list_approved');
 Route::get('/reserved/{reservation}', 'Admin\ReservationController@approve');
 Route::get('/delete/reservation/{id}', 'Admin\ReservationController@cancel_reservation');
+
 ////////////////Start pendning View////////////////
 Route::get('/pendinguser', 'Admin\UserApprovalController@index');
 Route::get('/approved/{user}', 'Admin\UserApprovalController@approve');
 Route::get('/removereq/{id}', 'Admin\UserApprovalController@reject_user');
+
 ////////////////Start view own profile////////////////
 Route::get('/admin/profile/', 'Admin\ProfileController@index')->name('admin.profile.show');
 Route::get('/admin/edit', 'Admin\ProfileController@edit')->name('admin.profile.edit');

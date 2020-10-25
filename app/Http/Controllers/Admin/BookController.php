@@ -23,6 +23,7 @@ class BookController extends Controller
     }
     public function addbook(Request $request)
     { 
+            $id = Auth::user();
             $rules = [
                 'bookname' => 'required|unique:books,book_name,',
                 'book_quantity' => 'required',
@@ -49,7 +50,7 @@ class BookController extends Controller
         }
 
         if ($request->has('book_image') && $imageName) {
-            $book->image_url = $imageName;
+            $book['image_url'] = $imageName;
         }
 
         $book->book_name = $request->bookname;

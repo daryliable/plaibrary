@@ -14,6 +14,10 @@
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
+              <div>
+              <h2><i class=""></i> List of Students</h2>
+              </div> 
+              <br>
               <!-- <button type="button" class="btn btn-primary pull-right" style="margin: 2px"><span class="badge"><i class="fa fa-plus"></i></span> Patient</button> -->
                
                
@@ -68,13 +72,7 @@
                           </div>
                       </div>
                   </div>
-                 
-                 
-
-
-                  <!-- For Edit -->
-
-                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#extraLargeModal" style="margin: 2px"><span class="badge"><i class="fa fa-plus"></i></span> Add Users</button><br><br><br>
+              
 
               <table class="table table-hover table-bordered" id="sampleTable">
                 <thead>
@@ -99,52 +97,7 @@
                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                               </div>
                               <div class="modal-body">
-                              <form action="/editBookList" method="post">
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                  <label>Title</label>
-                                  <input type="text" class="form-control" name="edit_bookname" placeholder="Book Name" required="required" value="">
-                                </div>
-
-                                <div class="form-group">
-                                  <label for="description">Book Description</label>
-                                  <textarea class="form-control" name="edit_description" rows="3" required="required"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                  <label for="genre">Category/Genre</label>
-                                  <select class="form-control" name="edit_genre" value="">
-                                 
-                                  </select>
-                                </div>
-
-                                <div class="form-group">
-                                  <input type="text" class="form-control" name="edit_author" placeholder="Book Author" required="required" value="">
-                                </div>
-
-                                <div class="form-group">
-                                  <input type="text" class="form-control" name="edit_publisher" placeholder="Book Publisher" required="required" value="">
-                                </div>
-
-                                <div class="form-group">
-                                  <input type="text" class="form-control" id="editCalendar" name="edit_datepublished" placeholder="Date Published" required="required" value="">
-                                </div>
-
-                                <div class="form-group">
-                                  <label for="exampleInputFile">Book Image</label>
-                                  <input class="form-control-file" type="file" name="edit_image" aria-describedby="fileHelp" value="">
-                                  <small class="form-text text-muted" id="fileHelp">Make sure that book image converted to 100 x 300 inches for better arrangement.
-                                  </small>
-                                </div>
-
-                                <input type="hidden" class="form-control" name="book_id" value="">
-                              
-                              </div>
-                              <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                  <button type="submit" class="btn btn-primary">OK</button>
-                              </div>
-                              </form>
+                            
                           </div>
                       </div>
                   </div>
@@ -155,7 +108,7 @@
                     <td>{{ $user->created_at }}</td>
                    
                     <td>
-                      <a href="view/user/{{$user->id}}"> <span class="badge badge-succesr"><i class="fa fa-address-card fa-2x"></i></span> </a>
+                      <a href="user/{{$user->id}}"> <span class="badge badge-succesr"><i class="fa fa-address-card fa-2x"></i></span> </a>
                 
                        <a href="#myModal" data-toggle="modal">  <span class="badge badge-danger"><i class="fa fa-trash-o fa-2x"></i></span> </a>
                     </td>

@@ -1,49 +1,28 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use Illuminate\Support\Facades\View;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
-use App\User;
-use App\Role;
 
-class UserController extends Controller
-{ 
-     public function __construct()
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Role;
+use App\User;
+
+class LibrarianController extends Controller
+{
+ public function __construct()
     { 
         $this->middleware('role:superadministrator');
     }
     public function index()
     {
-        $authorizedRoles = ['student', 'librarian'];
+        $authorizedRoles = ['librarian'];
         $roles = Role::all();
         $users = User::whereHas('roles', static function ($query) use ($authorizedRoles) {
                     return $query->whereIn('name', $authorizedRoles);
                 })->where('approved', '=', 1)->get();
-        return view('admin.usermanagement', ['users' => $users,'roles'=> $roles ]);
+        return view('admin.listoflibrarian', ['users' => $users,'roles'=> $roles ]);
     }
 
-    public function adduser(Request $request)
-    {
-
-        $user = request()->validate([   
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-        
-        $user = User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            'image_url' => $request['image']
-        ]);
-        $user->save();
-        $user->attachRoles(explode(',', $request->roles));
-        return back()->with('success', 'Successfully added new user.');
-    } 
     public function delete_user($user_id)
     {
         User::where ('id',  $user_id)->delete();
@@ -53,7 +32,7 @@ class UserController extends Controller
     public function viewuser_prof(int $userId, Request $request){
         $user = User::findOrFail($userId);
 
-        return view('admin.viewuser', compact('user'));
+        return view('admin.viewlibrarian', compact('user'));
     }
 
     public function edituser_prof(User $user){
@@ -77,6 +56,6 @@ class UserController extends Controller
         ]);
 
         $user->profile->update($data);
-        return redirect("/viewprof/$user->id")->with('success', 'Successfully updated user.');
+        return back()->with('success', 'Successfully updated user.');
     }
 }
