@@ -106,12 +106,21 @@
 
                   <tr>
                      <th>No.</th>
-                     <th>Book</th>
+                     <th>Book Title</th>
                      <th>Date Uploaded</th>
-                     <th>action</th>
+                     
                   </tr>
                 </thead>
+                
                 <tbody>
+                  @foreach($myuploadbooks as $row)
+                  <tr>
+                     <td>{{ $row->id}}</td>
+                     <td>{{ $row->book_name}}</td>
+                     <td>{{ $row->created_at }}</td>
+                    
+                  </tr>
+                  @endforeach
                 </tbody>
               </table>
 

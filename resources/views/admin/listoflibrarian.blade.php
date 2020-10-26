@@ -17,11 +17,7 @@
               <div>
               <h2><i class=""></i> List of Librarians</h2>
               </div> 
-              <br>
-              <!-- <button type="button" class="btn btn-primary pull-right" style="margin: 2px"><span class="badge"><i class="fa fa-plus"></i></span> Patient</button> -->
-               
-               
-               
+              <!-- <button type="button" class="btn btn-primary pull-right" style="margin: 2px"><span class="badge"><i class="fa fa-plus"></i></span> Patient</button> -->   
               <table class="table table-hover table-bordered" id="sampleTable">
                 <thead>
 
@@ -50,9 +46,9 @@
                     <td>{{ $user->created_at }}</td>
                    
                     <td>
-                      <a href="librarian/{{$user->id}}"> <span class="badge badge-succesr"><i class="fa fa-address-card fa-2x"></i></span> </a>
+                      <a href="librarian/{{$user->id}}" type="button" class="btn btn-primary"> <span class="badge badge-succesr">View</a>
                 
-                       <a href="#myModal" data-toggle="modal">  <span class="badge badge-danger"><i class="fa fa-trash-o fa-2x"></i></span> </a>
+                       <a href="#myModal" data-toggle="modal" type="button" class="btn btn-danger">Delete</a>
                     </td>
                   </tr>
     

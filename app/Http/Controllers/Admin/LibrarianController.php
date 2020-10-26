@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Role;
 use App\User;
-
+use App\Book;
 class LibrarianController extends Controller
 {
  public function __construct()
@@ -31,8 +31,8 @@ class LibrarianController extends Controller
 
     public function viewuser_prof(int $userId, Request $request){
         $user = User::findOrFail($userId);
-
-        return view('admin.viewlibrarian', compact('user'));
+        $myuploadbooks = Book::where('book_uploader', $user->name)->get();
+        return view('admin.viewlibrarian', compact('user','myuploadbooks'));
     }
 
     public function edituser_prof(User $user){

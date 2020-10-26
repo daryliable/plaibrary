@@ -108,9 +108,9 @@
                     <td>{{ $user->created_at }}</td>
                    
                     <td>
-                      <a href="user/{{$user->id}}"> <span class="badge badge-succesr"><i class="fa fa-address-card fa-2x"></i></span> </a>
+                      <a href="user/{{$user->id}}" type="button" class="btn btn-primary">View</span> </a>
                 
-                       <a href="#myModal" data-toggle="modal">  <span class="badge badge-danger"><i class="fa fa-trash-o fa-2x"></i></span> </a>
+                       <a href="#myModal" data-toggle="modal" type="button" class="btn btn-danger">Delete</a>
                     </td>
                   </tr>
     

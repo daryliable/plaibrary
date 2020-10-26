@@ -25,11 +25,9 @@
 
                   <tr>
                     <th>Reservation ID</th>
-                    <th>Book ID</th>
+                    <th>Book Name</th>
                     <th>User ID</th>
                     <th>Rervation Date</th>
-                    <th>Reservation Expiration</th>
-                    <th>Notes</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -37,11 +35,9 @@
                 <tbody>
                  <tr>
                     <th>{{ $reservation->id}}</th>
-                    <th>{{ $reservation->book_id }}</th>
+                    <th>{{ $reservation->book_name}}</th>
                     <th>{{ $reservation->user_id }}</th>
                     <th>{{ $reservation->created_at }}</th>
-                    <th>{{ $reservation->expiry_date }}</th>
-                    <th>{{ $reservation->notes }}</th>
                      <td>
                       <a href="/lib_reserved/{{$reservation->id}}" type="button" class="btn btn-success">Accepts</a>
                       <a href="/lib_cancelres/{{$reservation->id}}" type="button" class="btn btn-danger">Reject</a>

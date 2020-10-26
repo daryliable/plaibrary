@@ -79,7 +79,9 @@
 
 
                   <!-- For Edit -->
-
+                <div>
+                <h2><i class=""></i> My Uploaded Book</h2>
+                </div> 
                 <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#extraLargeModal" style="margin: 2px"><span class="badge"><i class="fa fa-plus"></i></span> Add Books</button><br><br><br>
 
               <table class="table table-hover table-bordered" id="sampleTable">

@@ -88,6 +88,7 @@
 
                   <tr>
                     <th>No.</th>
+                    <th>Book Uploader</th>
                     <th>Book Title</th>
                     <th>Book Description</th>
                     <th>Category/Genre</th>
@@ -163,6 +164,7 @@
                   </div>
                   <tr>
                     <td>{{ $row->id }}</td>
+                    <td>{{ $row->book_uploader }}</td>
                     <td>{{ $row->book_name }}</td>
                     <td>{{ $row->book_description }}</td>
                     <td>{{ $row->genre->genre_name }}</td>

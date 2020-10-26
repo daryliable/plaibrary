@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
-
+use App\Reservation;
 class StudentController extends Controller
 { 
      public function __construct()
@@ -34,8 +34,8 @@ class StudentController extends Controller
 
     public function viewuser_prof(int $userId, Request $request){
         $user = User::findOrFail($userId);
-
-        return view('admin.viewstudent', compact('user'));
+        $myborrowbooks = Reservation::where('student_name', $user->name)->get();
+        return view('admin.viewstudent', compact('user', 'myborrowbooks'));
     }
 
     public function edituser_prof(User $user){

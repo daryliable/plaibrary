@@ -346,6 +346,7 @@
                       Description: {{$book->book_description}}<br>
                       Genre: {{ $book->genre->genre_name }}
                       <input type="" name="book_id" value="{{ $book->id }}" hidden="">
+                      <input type="" name="book_name" value="{{ $book->book_name }}" hidden="">
                     </p>      
                   </div>
                   @if(!is_null($book) && $book->book_quantity != 0)

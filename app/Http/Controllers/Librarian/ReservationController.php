@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Librarian;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Reservation;
 use App\Book;
 class ReservationController extends Controller
@@ -14,7 +15,8 @@ class ReservationController extends Controller
     }
 
      public function pending(Reservation $reservations){
-        $reservations = Reservation::where('status', '=', 1)->get();
+        $user = Auth::user()->name;
+        $reservations = Reservation::where('status', '=', 1);
         return view('librarian.pendingreservation', compact('reservations'));
     }
 

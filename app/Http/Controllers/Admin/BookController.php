@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Genre;
 use App\Book;
@@ -53,6 +54,7 @@ class BookController extends Controller
             $book['image_url'] = $imageName;
         }
 
+        $book->book_uploader = $id->name;
         $book->book_name = $request->bookname;
         $book->book_quantity = $request->book_quantity;
         $book->book_description = $request->description;
@@ -60,7 +62,7 @@ class BookController extends Controller
         $book->book_author = $request->author;
         $book->book_publisher = $request->publisher;
         $book->date_published = $request->datepublished;
-     
+        
         $book->save();
         return back()->with('success', 'Successfully added new book.');
     }

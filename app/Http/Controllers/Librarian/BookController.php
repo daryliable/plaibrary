@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Librarian;
 
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Genre;
 use App\Book;
+
 class BookController extends Controller
 {
      public function __construct()
@@ -16,13 +18,15 @@ class BookController extends Controller
 
     public function index()
     {
+        $user = Auth::user()->name;
         $category = Genre::all();
-        $book_list = Book::all();
+        $book_list = Book::where('book_uploader', $user)->get();
 
         return view('librarian.bookmanagement', ['books' => $book_list, 'genre' => $category]);
     }
     public function addbook(Request $request)
     {
+        $user = Auth::user();
          $rules = [
                 'bookname' => 'required|unique:books,book_name,',
                 'book_quantity' => 'required',
@@ -59,7 +63,7 @@ class BookController extends Controller
         $book->book_author = $request->author;
         $book->book_publisher = $request->publisher;
         $book->date_published = $request->datepublished;
-     
+        $book->book_uploader = $user->name;
         $book->save();
         return back()->with('success', 'Successfully added new book.');
     }

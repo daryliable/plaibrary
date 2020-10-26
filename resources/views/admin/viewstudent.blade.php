@@ -98,20 +98,27 @@
                 </div>
                  </form>
               </div>
-
+              <br>
 <!-- Tunga -->
                   <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">
                      <table class="table table-hover table-bordered" id="sampleTable">
                 <thead>
-
                   <tr>
                      <th>No.</th>
                      <th>Book</th>
                      <th>Date Barrowed</th>
-                     <th>action</th>
+                   
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach($myborrowbooks as $row)
+                  <tr>
+                    <td>{{$row->id}}</td>
+                    <td>{{$row->book_name}}</td>
+                    <td>{{$row->created_at}}</td>
+             
+                  </tr>
+                  @endforeach
                 </tbody>
               </table>
 

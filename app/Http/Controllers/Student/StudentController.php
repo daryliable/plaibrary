@@ -24,8 +24,9 @@ class StudentController extends Controller
     public function reserve(Reservation $reservation, Book $book){
         $book->book_quantity = $book->book_quantity-1;
         $reservation->status = 1;
-        $reservation->user_id = Auth::user()->id;
+        $reservation->student_name = Auth::user()->name;
         $reservation->book_id = request('book_id');
+        $reservation->book_name = request('book_name');
         $book->save();
         $reservation->save();
         return redirect()->back()->with('success', 'Successfully reserve book: '. $book->book_name);

@@ -18,4 +18,7 @@ class Book extends Model
       {
         return $this->hasOne(Genre::class, 'id', 'genre_id');
     }
+     public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
