@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Librarian;
 use App\User;
+use App\Profile;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -27,24 +28,53 @@ class ProfileController extends Controller
       return  view('librarian.editprofile', compact('user')); 
     }
 
-    public function update(User $user){
+    public function update(Request $request){
         $id = Auth::user()->id;
         $user = User::findOrFail($id);
-        
-        $data2 = request()->validate([
-        'name' => 'required',     
-        ]);
-        $user->update($data2);
 
-        $data = request()->validate([
+        $rules = [
+            'name' => '',
             'gender' => '',
             'civil' => '',
             'birthdate' => '',
             'address' => '',
             'contact_num' => '',
-        ]);
+            'designation' => '',
+            'occupation' => '',
+            'coll_univ' => '',
+        ];    
+        
+        if ($request->has('profile')) {
+            $rules['profile'] = 'mimes:jpeg,jpg,png,gif|required|max:10000';
+        }
 
-        $user->profile->update($data);
+        $this->validate($request, $rules);
+
+        if ($request->has('profile')) {
+             $time = time();
+             $destination =  public_path() . '/images/user_images/' . $time .'_' .  str_replace(' ', '_', $request->file('profile')->getClientOriginalName());
+             $imageName = $time . '_' . $request->file('profile')->getClientOriginalName();
+             move_uploaded_file($request->file('profile'), $destination);
+        }
+        $user->name = $request->name;
+
+        $profile = [
+                'gender' => $request->gender,
+                'civil' => $request->civil,
+                'birthdate' => $request->birthdate,
+                'address' => $request->address,
+                'contact_num' => $request->contact_num,
+                'designation' => $request->designation,
+                'occupation' => $request->occupation,
+                'coll_univ' => $request->coll_univ,
+        ];
+
+        if ($request->has('profile') && $imageName) {
+            $profile['image_url'] = $imageName;
+         }
+      
+        $user->save();
+        $editProfileupdate = Profile::where ('id',  $id)->update($profile);
           return redirect()->route('librarian.profile.show')->with('success', 'Successfully updated profile.');;
     }
 

@@ -90,8 +90,32 @@
                   
 
                   <div class="col-6">
-                     <h4></h4>
-                  </div>
+                     <h4>Profile</h4>
+                                  <div class="form-row">
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">Designation</span>
+                                        </div>
+                                         <input type="text" class="form-control" placeholder="" name="Designation" value="{{$user->profile->designation ?? ''}}" disabled> 
+                                    </div>
+                                 </div>
+                                <br><div class="form-row">
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">Occupation</span>
+                                        </div>
+                                         <input type="text" class="form-control" placeholder="" name="Occupation" value="{{$user->profile->occupation ?? ''}}" disabled> 
+                                    </div>
+                                 </div>
+                                 
+                                  <br><div class="form-row">
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">College/University</span>
+                                        </div>
+                                         <input type="text" class="form-control" placeholder="" name="College_University" value="{{$user->profile->coll_univ ?? ''}}" disabled> 
+                                    </div>
+                                 </div>                  </div>
                 </div>
                 <div class="modal-footer">
                     <a href="{{ route('librarian.profile.edit')}}" class="btn btn-primary">Edit Profile</a>

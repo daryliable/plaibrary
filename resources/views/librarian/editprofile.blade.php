@@ -22,7 +22,7 @@
       <div class="tab-content" id="myTabContent"> 
           <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <br>
-            <form  action="{{ route('librarian.profile.update')}}" method="post">
+            <form  action="{{ route('librarian.profile.update')}}" method="post" enctype="multipart/form-data">
             <div class="row">
               @csrf
                 @method('PATCH')
@@ -85,7 +85,43 @@
                   
 
                   <div class="col-6">
-                     <h4></h4>
+                    
+                     <h4>Profile</h4>
+                     <div class="form-row">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Profile picture</span>
+                        </div>
+                            <input class="form-control" type="file" name="profile" aria-describedby="fileHelp"> 
+                      </div>
+                    </div>
+
+                    <br><div class="form-row">
+                          <div class="input-group">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text">Designation</span>
+                              </div>
+                              <input type="text" class="form-control" placeholder="Designation" name="designation" value="{{$user->profile->designation ?? ''}}" > 
+                          </div>
+                        </div>
+
+                     <br><div class="form-row">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Occupation</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Occupation" name="occupation" value="{{$user->profile->occupation ?? ''}}" > 
+                            </div>
+                          </div>
+                                 
+                                  <br><div class="form-row">
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">College/University</span>
+                                        </div>
+                                         <input type="text" class="form-control" placeholder="College/University" name="coll_univ" value="{{$user->profile->coll_univ ?? ''}}" > 
+                                    </div>
+                                 </div>
                   </div>
                 </div>
                 <div class="modal-footer">

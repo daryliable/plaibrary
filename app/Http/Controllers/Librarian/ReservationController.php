@@ -15,8 +15,12 @@ class ReservationController extends Controller
     }
 
      public function pending(Reservation $reservations){
-        $user = Auth::user()->name;
-        $reservations = Reservation::where('status', '=', 1);
+        $id = Auth::user()->id;
+        $reservations = Reservation::where([
+           'status' => 1,
+           'lib_id' => $id,
+        ])->get();
+        
         return view('librarian.pendingreservation', compact('reservations'));
     }
 

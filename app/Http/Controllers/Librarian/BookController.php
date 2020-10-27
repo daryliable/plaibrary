@@ -18,9 +18,9 @@ class BookController extends Controller
 
     public function index()
     {
-        $user = Auth::user()->name;
+        $user = Auth::user()->id;
         $category = Genre::all();
-        $book_list = Book::where('book_uploader', $user)->get();
+        $book_list = Book::where('user_id', $user)->get();
 
         return view('librarian.bookmanagement', ['books' => $book_list, 'genre' => $category]);
     }
@@ -64,7 +64,7 @@ class BookController extends Controller
         $book->book_publisher = $request->publisher;
         $book->date_published = $request->datepublished;
         $book->book_uploader = $user->name;
-        $book->save();
+        $user->books()->save($book);
         return back()->with('success', 'Successfully added new book.');
     }
     public function editBook()

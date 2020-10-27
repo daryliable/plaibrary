@@ -8,7 +8,9 @@
         </div>
       </div>
       <ul class="app-menu ">
-        <li class=""><a class="app-menu__item {{ Request::path() ==  'superadmin/dashboard' ? 'active' : ''  }} " href="{{ route('superadmin.dashboard') }}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li class=""><a class="app-menu__item {{ Request::path() ==  'admin/dashboard' ? 'active' : ''  }} " href="{{ route('superadmin.dashboard') }}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+           <li class=""><a class="app-menu__item {{ Request::path() ==  'bookmgnt' ? 'active' : ''  }}" href="{{ url('/bookmgnt')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Book Management</span></a></li>
+
           <li class=""><a class="app-menu__item {{ Request::path() ==  'pending/appointment' ? 'active' : ''  }}" href="{{ url('/pending/appointment')}}"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Pending Appointment</span></a></li>
            <li class=""><a class="app-menu__item {{ Request::path() ==  'appointment' ? 'active' : ''  }}" href="{{ url('/appointment')}}"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Appointment</span></a></li>
           <!-- <ul class="treeview-menu">
@@ -18,8 +20,7 @@
             <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li>
           </ul> -->
         </li>
-        <li class=""><a class="app-menu__item {{ Request::path() ==  'bookmgnt' ? 'active' : ''  }}" href="{{ url('/bookmgnt')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Book Management</span></a></li>
-
+     
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">User Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a  class="treeview-item {{ Request::path() ==  'create/users' ? 'active' : ''  }}" href="{{ route('create.view.user') }}"><i class="icon fa fa-circle-o"></i>Add Users</a></li>

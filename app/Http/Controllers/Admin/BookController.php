@@ -24,7 +24,8 @@ class BookController extends Controller
     }
     public function addbook(Request $request)
     { 
-            $id = Auth::user();
+           
+            $user = Auth::user();
             $rules = [
                 'bookname' => 'required|unique:books,book_name,',
                 'book_quantity' => 'required',
@@ -54,7 +55,7 @@ class BookController extends Controller
             $book['image_url'] = $imageName;
         }
 
-        $book->book_uploader = $id->name;
+        $book->book_uploader = $user->name;
         $book->book_name = $request->bookname;
         $book->book_quantity = $request->book_quantity;
         $book->book_description = $request->description;
@@ -63,7 +64,7 @@ class BookController extends Controller
         $book->book_publisher = $request->publisher;
         $book->date_published = $request->datepublished;
         
-        $book->save();
+        $user->books()->save($book);
         return back()->with('success', 'Successfully added new book.');
     }
     public function editBook()

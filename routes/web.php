@@ -80,7 +80,7 @@ Route::get('/reserved', 'Librarian\ReservationController@list_approved');
 Route::get('/lib_reserved/{reservation}', 'Librarian\ReservationController@approve');
 Route::get('/lib_cancelres/{id}', 'Librarian\ReservationController@cancel_reservation');
 ////////////////Start view own profile////////////////
-Route::get('/librarian/profile', 'Librarian\ProfileController@index')->name('librarian.profile.show');
-Route::get('librarian/edit', 'Librarian\ProfileController@edit')->name('librarian.profile.edit');
+Route::get('/librarian', 'Librarian\ProfileController@index')->name('librarian.profile.show');
+Route::get('/edit', 'Librarian\ProfileController@edit')->name('librarian.profile.edit');
 Route::patch('/librarian/profile/update', 'Librarian\ProfileController@update')->name('librarian.profile.update');
 Route::patch('/librarian/password/update', 'Librarian\ProfileController@updatepassword')->name('librarian.profile.updatepassword');

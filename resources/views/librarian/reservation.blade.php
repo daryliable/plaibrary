@@ -3,7 +3,7 @@
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-th-list"></i> Book Management</h1>
+          <h1><i class="fa fa-th-list"></i> Appointment</h1>
         </div> 
       </div>
       
@@ -25,28 +25,22 @@
                   <tr>
                     <th>Reservation ID</th>
                     <th>Book ID</th>
-                    <th>Rervation Date</th>
-                    <th>Reservation Expiration</th>
-                    <th>Notes</th>
-                    <th>Action</th>
+                    <th>Student Name</th>
+                    <th>Appointment Date</th>
+                    <th>University/Institution</th>
                   </tr>
                 </thead>
-                @forelse($reservations as $reservation)
+                @foreach($reservations as $reservation)
                 <tbody>
                  <tr>
-                    <th>{{ $reservation->resvation_id }}</th>
+                    <th>{{ $reservation->id }}</th>
                     <th>{{ $reservation->book_id }}</th>
-                    <th>{{ $reservation->start_date }}</th>
-                    <th>{{ $reservation->expiry_date }}</th>
-                    <th>{{ $reservation->notes }}</th>
-                    <th></th>
-                    
-                  </tr>
-               
+                    <th>{{ $reservation->student_name }}</th>
+                    <th>{{ $reservation->updated_at }}</th>
+                    <th>sd</th>
+                  </tr>  
                 </tbody>
-                @empty
-                <td class='text-capitalize text-danger text-center' colspan='6'>no available reservation</td>
-                @endforelse
+                @endforeach
               </table>
               </div>
 

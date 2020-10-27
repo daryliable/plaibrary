@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class UserCreateController extends Controller
 {
+      public function __construct()
+    { 
+        $this->middleware('role:superadministrator');
+
+    }
     public function index(){
          $roles = Role::all();
         return view('admin.adduser', compact('roles'));
