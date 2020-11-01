@@ -3,8 +3,9 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
     <title>Plaibrary</title>
 
     <!-- Bootstrap CSS -->
@@ -398,6 +399,7 @@
     </div> -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
     <script src="{{ asset('../grandcss/js/jquery-min.js')}}"></script>
     <script src="{{ asset('../grandcss/js/popper.min.js')}}"></script>
     <script src="{{ asset('../grandcss/js/bootstrap.min.js')}}"></script> 
@@ -409,6 +411,6 @@
     <!-- Essential javascripts for login to work-->
     <script src="{{ asset('../logins/js/placeholders.min.js')}}"></script> <!-- polyfill for the HTML5 placeholder attribute -->
     <script src="{{ asset('../logins/js/main.js')}}"></script> <!-- Resource JavaScript -->
-      
+ 
   </body>
 </html>

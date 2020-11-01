@@ -47,16 +47,64 @@
         </div>
       
       </div>
-      <div class="row">
-        <div class="col-md-6">
+      
+        <div class="">
           <div class="tile">
             <h3 class="tile-title">User Statistics</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
-            </div>
+             <div id="chart-container"></div>
+             <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+             <script type="text/javascript">
+               var datas = <?php echo json_encode($datas) ?>
+
+               Highcharts.chart('chart-container', {
+                title:{
+                  text: 'New User Growth, 2020'
+                },
+                subtitle:{
+                  text: ''
+                },
+                xAxis: {
+                      categories: ['January','Febraury','March','April','May','June','July','August','September','October','November','December']
+                },
+                yAxis: {
+                      title: {
+                          text: 'Number of New Student'
+                      }
+                },
+                legend: {
+                      layout: 'vertical',
+                      align: 'right',
+                      verticalAlign: 'middle'
+                },
+                plotOptions: {
+                      series: {
+                          allowPointSelect:true
+                      }
+                },
+                series: [{
+                    name: 'New Student',
+                    data:datas
+                }],
+                responsive: {
+                    rules: [{
+                        condition: {
+                          maxWidth:500
+                        },
+                        chartOption: {
+                          legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign:'bottom' 
+                          }
+                        }
+                    }]
+                }
+               })
+             </script>
+          
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="">
           <div class="tile">
             <h3 class="tile-title">Most Visit School/University</h3>
             <div class="embed-responsive embed-responsive-16by9">
@@ -64,7 +112,7 @@
             </div>
           </div>
         </div>
-      </div>
+      
       
     </main>
 @include ('admin.includes.footer')

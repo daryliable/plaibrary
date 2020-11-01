@@ -61,7 +61,6 @@ Route::patch('/admin/profile/update', 'Admin\ProfileController@update')->name('a
 Route::patch('/admin/password/update', 'Admin\ProfileController@updatepassword')->name('admin.profile.updatepassword');
 
 //////////////////////////////////////////// STUDENT ROUTES ///////////////////////////////////////////////////////////
-Route::resource('/availablebooks', 'Student\ReservebookController@index');
 Route::post('/reserve_book/{book}', 'Student\StudentController@reserve');
 Route::get('/student/profile', 'Student\ProfileController@profile')->name('student.profile.show');
 Route::get('/edit', 'Student\ProfileController@edit')->name('student.profile.edit');
@@ -81,6 +80,6 @@ Route::get('/lib_reserved/{reservation}', 'Librarian\ReservationController@appro
 Route::get('/lib_cancelres/{id}', 'Librarian\ReservationController@cancel_reservation');
 ////////////////Start view own profile////////////////
 Route::get('/librarian', 'Librarian\ProfileController@index')->name('librarian.profile.show');
-Route::get('/edit', 'Librarian\ProfileController@edit')->name('librarian.profile.edit');
+Route::get('/lib_edit', 'Librarian\ProfileController@edit')->name('librarian.profile.edit');
 Route::patch('/librarian/profile/update', 'Librarian\ProfileController@update')->name('librarian.profile.update');
 Route::patch('/librarian/password/update', 'Librarian\ProfileController@updatepassword')->name('librarian.profile.updatepassword');
