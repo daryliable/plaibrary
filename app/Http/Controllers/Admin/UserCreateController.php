@@ -32,7 +32,7 @@ class UserCreateController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
-            'image_url' => $request['image']
+            
         ]);
         $user->save();
         $user->attachRoles(explode(',', $request->roles));

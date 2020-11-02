@@ -22,27 +22,26 @@ public function index()
         $noOfRequest = User::where('approved', '!=' , 1)->count();
         $noOfUploads = Book::count();
         
-        $currentYear = date('Y');
+    
         $students = User::select(DB::raw("COUNT(*) as count"))
                         ->whereRoleIs('student')
                         ->where('approved', '=', 1)
-                        ->whereYear('created_at', $currentYear)
-                        ->groupBy(DB::raw("Month(created_at)"))
-                        ->pluck('count');
-
+                        ->whereYear('created_at',date('Y'))
+                        ->groupBy(DB::raw("Month(created_at)"));
         $months = User::select(DB::raw("Month(created_at) as month"))
                         ->whereRoleIs('student')
                         ->where('approved', '=', 1)
-                        ->whereYear('created_at', $currentYear)
-                        ->groupBy(DB::raw("Month(created_at)"))
-                        ->pluck('month');
+                        ->whereYear('created_at',date('Y'))
+                        ->groupBy(DB::raw("Month(created_at)"));
 
-        $datas = array(0,0,0,0,0,0,0,0,0,0,0,0);
-
-            foreach($months as $index =>$month){
-                    $datas[$month] = $students[$index];
-            }
-
+        $datas = array(0,0,0,0,0,0,0,0,0,0,0,0,0);
+        
+        foreach($months as $index => $month)
+        {
+            $datas[$month] = $students[$index];
+           
+        }
+     
         return view('admin.index', compact('noOfStudents', 'noOfLibrarians', 'noOfRequest', 'noOfUploads','datas'));
         
     }

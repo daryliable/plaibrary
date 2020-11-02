@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
             LaratrustSeeder::class,
             GenreSeeder::class,
             ProfileSeeder::class
-                ]);
+            ]);
     }
   
 }
