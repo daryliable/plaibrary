@@ -22,7 +22,6 @@ public function index()
         $noOfRequest = User::where('approved', '!=' , 1)->count();
         $noOfUploads = Book::count();
         
-        $reserve = Reservation::all()->pluck('id');
       
         $students = User::select(DB::raw("COUNT(*) as count"))
                         ->whereRoleIs('student')
