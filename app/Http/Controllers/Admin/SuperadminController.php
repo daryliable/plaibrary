@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Book;
@@ -24,8 +23,19 @@ public function index()
         $noOfUploads = Book::count();
         
       
-        $students = User::pluck('name');
-        dd($students);
+        $students = User::select(DB::raw("COUNT(*) as count"))
+                        ->whereRoleIs('student')
+                        ->where('approved', '=', 1)
+                        ->whereYear('created_at',date('Y'))
+                        ->groupBy(DB::raw("Month(created_at)"))
+                        ->pluck('count');
+        $months = User::select(DB::raw("Month(created_at) as month"))
+                        ->whereRoleIs('student')
+                        ->where('approved', '=', 1)
+                        ->whereYear('created_at',date('Y'))
+                        ->groupBy(DB::raw("Month(created_at)"))
+                        ->pluck('month');
+
         $datas = array(0,0,0,0,0,0,0,0,0,0,0,0,0);
         
         foreach($months as $index => $month)
