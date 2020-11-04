@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Role;
 use App\User;
+
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
