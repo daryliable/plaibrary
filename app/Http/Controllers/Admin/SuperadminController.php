@@ -23,11 +23,12 @@ public function index()
         $noOfRequest = User::where('approved', '!=' , 1)->count();
         $noOfUploads = Book::count();
         
-      
+        
+        $currentYear = date('Y');
         $students = User::select(DB::raw("COUNT(*) as count"))
                         ->whereRoleIs('student')
                         ->where('approved', '=', 1)
-                        ->whereYear('created_at',date('Y'))
+                        ->whereYear('created_at',$currentYear)
                         ->groupBy(DB::raw("Month(created_at)"))
                         ->pluck('count');
         $months = User::select(DB::raw("Month(created_at) as month"))
