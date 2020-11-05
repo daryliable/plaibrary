@@ -25,18 +25,18 @@ public function index()
         
         
         $currentYear = date('Y');
-        $students = User::select(DB::raw("COUNT(*) as count"))
+        $students = User::select(DB::raw("COUNT(*) as count","(DATE_FORMAT(created_at,'%Y'))"))
                         ->whereRoleIs('student')
                         ->where('approved', '=', 1)
                         ->whereYear('created_at',$currentYear)
-                        ->groupBy(DB::raw("Month(created_at)"));
-                        
-        $months = User::select(DB::raw("Month(created_at) as month"))
+                        ->groupBy(DB::raw("Month(created_at)"))
+                        ->pluck('count');
+        $months = User::select(DB::raw("Month(created_at) as month","(DATE_FORMAT(created_at,'%Y'))"))
                         ->whereRoleIs('student')
                         ->where('approved', '=', 1)
                         ->whereYear('created_at',date('Y'))
-                        ->groupBy(DB::raw("Month(created_at)"));
-                        
+                        ->groupBy(DB::raw("Month(created_at)"))
+                        ->pluck('month');
 
         $datas = array(0,0,0,0,0,0,0,0,0,0,0,0,0);
         
@@ -48,5 +48,8 @@ public function index()
     
         return view('admin.index', compact('noOfStudents', 'noOfLibrarians', 'noOfRequest', 'noOfUploads','datas'));
         
+    }
+    public function userChart(){
+
     }
 }
