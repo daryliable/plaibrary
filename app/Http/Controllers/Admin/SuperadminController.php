@@ -29,12 +29,14 @@ public function index()
                         ->whereRoleIs('student')
                         ->where('approved', '=', 1)
                         ->whereYear('created_at',$currentYear)
-                        ->pluck('count');
+                        ->groupBy(DB::raw("Month(created_at)"));
+                        
         $months = User::select(DB::raw("Month(created_at) as month"))
                         ->whereRoleIs('student')
                         ->where('approved', '=', 1)
                         ->whereYear('created_at',date('Y'))
-                        ->pluck('month');
+                        ->groupBy(DB::raw("Month(created_at)"));
+                        
 
         $datas = array(0,0,0,0,0,0,0,0,0,0,0,0,0);
         
