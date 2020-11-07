@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
+use Carbon\Carbon;
 use App\User;
 use App\Book;
 use App\Reservation;
@@ -23,30 +24,12 @@ public function index()
         $noOfRequest = User::where('approved', '!=' , 1)->count();
         $noOfUploads = Book::count();
         
-        
-        $currentYear = date('Y');
-        $students = User::select(DB::raw("COUNT(*) as count","(DATE_FORMAT(created_at,'%Y'))"))
-                        ->whereRoleIs('student')
-                        ->where('approved', '=', 1)
-                        ->whereYear('created_at',$currentYear)
-                        ->groupBy(DB::raw("Month(created_at)"))
-                        ->pluck('count');
-        $months = User::select(DB::raw("Month(created_at) as month","(DATE_FORMAT(created_at,'%Y'))"))
-                        ->whereRoleIs('student')
-                        ->where('approved', '=', 1)
-                        ->whereYear('created_at',date('Y'))
-                        ->groupBy(DB::raw("Month(created_at)"))
-                        ->pluck('month');
+         $users = User::select(\DB::raw("COUNT(*) as count"))
+                    ->whereYear('created_at', date('Y'))
+                    ->groupBy(\DB::raw("Month(created_at)"))
+                    ->pluck('count');
 
-        $datas = array(0,0,0,0,0,0,0,0,0,0,0,0,0);
-        
-        foreach($months as $index => $month)
-        {
-            $datas[$month] = $students[$index];
-           
-        }
-    
-        return view('admin.index', compact('noOfStudents', 'noOfLibrarians', 'noOfRequest', 'noOfUploads','datas'));
+        return view('admin.index', compact('noOfStudents', 'noOfLibrarians', 'noOfRequest', 'noOfUploads','users'));
         
     }
     public function userChart(){

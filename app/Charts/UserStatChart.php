@@ -45,9 +45,9 @@ class UserStatChart extends BaseChart
     public function handler(Request $request): Chartisan
     {
         $month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-        $user = User::all()->count();
         return Chartisan::build()
             ->labels($month)
-            ->dataset('Sample', [1, 2, 3, $user]);
+            ->dataset('Sample', [1, 2, 3]);
+            
     }
 }
