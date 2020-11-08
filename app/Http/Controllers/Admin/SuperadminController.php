@@ -24,12 +24,31 @@ public function index()
         $noOfRequest = User::where('approved', '!=' , 1)->count();
         $noOfUploads = Book::count();
         
+
          $users = User::select(\DB::raw("COUNT(*) as count"))
+                    ->whereRoleIs('student')
+                    ->where('approved', '=', 1)
                     ->whereYear('created_at', date('Y'))
                     ->groupBy(\DB::raw("Month(created_at)"))
                     ->pluck('count');
+        $months = User::select(\DB::raw("Month(created_at) as month"))
+                    ->whereRoleIs('student')
+                    ->where('approved', '=', 1)
+                    ->whereYear('created_at', date('Y'))
+                    ->groupBy(\DB::raw("Month(created_at)"))
+                    ->pluck('month');
 
-        return view('admin.index', compact('noOfStudents', 'noOfLibrarians', 'noOfRequest', 'noOfUploads','users'));
+        $datas = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+        foreach ($months as $index => $month)
+        { 
+                $month = $month - 1;
+                $datas[$month] = $users[$index];
+
+        }
+        
+      
+        return view('admin.index', compact('noOfStudents', 'noOfLibrarians', 'noOfRequest', 'noOfUploads','datas'));
         
     }
     public function userChart(){

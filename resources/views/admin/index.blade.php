@@ -54,7 +54,7 @@
              <div id="container"></div>
              <script src="https://code.highcharts.com/highcharts.js"></script>
 <script type="text/javascript">
-    var users =  <?php echo json_encode($users) ?>;
+    var datas =  <?php echo json_encode($datas) ?>;
    
     Highcharts.chart('container', {
         title: {
@@ -83,7 +83,7 @@
         },
         series: [{
             name: 'New Users',
-            data: users
+            data: datas
         }],
         responsive: {
             rules: [{
