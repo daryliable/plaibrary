@@ -1,7 +1,10 @@
 <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{ URL::asset('images/user_images/' . Auth::user()->profile->image_url) }}" width="48" height="48" alt="User Image">
+      <div class="app-sidebar__user">
+        @if (Auth::user()->profile->image_url)
+        <img class="app-sidebar__user-avatar" src="{{ URL::asset('images/user_images/' . Auth::user()->profile->image_url) }}" width="48" height="48" alt="User Image">
+         @endif
         <div>
           <p class="app-sidebar__user-name">{{Auth::user()->name}}</p>
           <p class="app-sidebar__user-designation">Admin</p>

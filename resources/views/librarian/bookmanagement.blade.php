@@ -32,7 +32,7 @@
                                   <input type="text" class="form-control" name="bookname" placeholder="Book Name" required="required">
                                 </div>
                                  <div class="form-group">
-                                  <input type="number" class="form-control" name="book_quantity" placeholder="Quantity" required="required">
+                                  <input type="number" class="form-control" name="book_quantity" placeholder="Number of Copies" required="required">
                                 </div>
                                 <div class="form-group">
                                   <label for="description">Book Description</label>
@@ -95,7 +95,7 @@
                     <th>Book Author</th>
                     <th>Publisher</th>
                     <th>Date Published</th>
-                    <th>Quantity</th>
+                    <th>Number of Copies</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -116,7 +116,7 @@
                                   <input type="text" class="form-control" name="edit_bookname" placeholder="Book Name" required="required" value="{{ $row->book_name }}">
                                 </div>
                                 <div class="form-group">
-                                  <input type="number" class="form-control" name="edit_book_quantity" placeholder="Quantity" required="required"  value="{{ $row->book_quantity }}">
+                                  <input type="number" class="form-control" name="edit_book_quantity" placeholder="Number of Copies" required="required"  value="{{ $row->book_quantity }}">
                                 </div>
                                 <div class="form-group">
                                   <label for="description">Book Description</label>

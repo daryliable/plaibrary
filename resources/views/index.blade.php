@@ -96,7 +96,8 @@
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select> 
- 
+                  <input class="form-control" id="name" type="text" class="form-control" name="call_num" value="{{ old('call_num') }}" required autocomplete="name" placeholder="Call Number">
+                  
                   <input class="form-control" id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="name">
                   
     

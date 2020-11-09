@@ -1,15 +1,16 @@
 <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar"  src="{{ URL::asset('images/user_images/' . Auth::user()->profile->image_url) }}" width="48" height="48" alt="User Image">
+      <div class="app-sidebar__user">
+         @if(Auth::user()->profile->image_url)
+        <img class="app-sidebar__user-avatar"  src="{{ URL::asset('images/user_images/' . Auth::user()->profile->image_url) }}" width="48" height="48" alt="User Image">
+        @endif
         <div>
           <p class="app-sidebar__user-name">{{Auth::user()->name}}</p>
           <p class="app-sidebar__user-designation">Librarian</p>
         </div>
       </div>
       <ul class="app-menu ">
-        <li class=""><a class="app-menu__item {{ Request::path() ==  'librarian/dashboard' ? 'active' : ''  }} " href="{{ route('librarian.dashboard') }}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-
           <li class=""><a class="app-menu__item {{ Request::path() ==  'view_book' ? 'active' : ''  }}" href="{{ url('/view_book')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Book Management</span></a></li>
             <li class=""><a class="app-menu__item {{ Request::path() ==  'pending' ? 'active' : ''  }}" href="{{ url('/pending')}}"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Pending Appointment</span></a></li>
            <li class=""><a class="app-menu__item {{ Request::path() ==  'reserved' ? 'active' : ''  }}" href="{{ url('/reserved')}}"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Appointment</span></a></li>

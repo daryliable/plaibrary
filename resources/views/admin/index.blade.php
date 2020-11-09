@@ -50,65 +50,97 @@
       
         <div class="">
           <div class="tile">
-            <h3 class="tile-title">User Statistics</h3>
+            <h3 class="tile-title">USER STATISTICS</h3>
              <div id="container"></div>
              <script src="https://code.highcharts.com/highcharts.js"></script>
-<script type="text/javascript">
-    var datas =  <?php echo json_encode($datas) ?>;
-   
-    Highcharts.chart('container', {
-        title: {
-            text: 'New User Growth, 2019'
-        },
-        subtitle: {
-            text: 'Source: itsolutionstuff.com.com'
-        },
-         xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        },
-        yAxis: {
-            title: {
-                text: 'Number of New Users'
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                allowPointSelect: true
-            }
-        },
-        series: [{
-            name: 'New Users',
-            data: datas
-        }],
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-});
-</script>
+                <script type="text/javascript">
+                    var datas =  <?php echo json_encode($datas) ?>;
+                   
+                    Highcharts.chart('container', {
+                        title: {
+                            text: 'New User Growth, 2020'
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                         xAxis: {
+                            categories: ['January', 'Febraury', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Number of New User'
+                            }
+                        },
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'middle'
+                        },
+                        plotOptions: {
+                            series: {
+                                allowPointSelect: true
+                            }
+                        },
+                        series: [{
+                            name: 'New Users',
+                            data:datas
+                        }],
+                        responsive: {
+                            rules: [{
+                                condition: {
+                                    maxWidth: 500
+                                },
+                                chartOptions: {
+                                    legend: {
+                                        layout: 'horizontal',
+                                        align: 'center',
+                                        verticalAlign: 'bottom'
+                                    }
+                                }
+                            }]
+                        }
+                });
+                </script>
           </div>
         </div>
 
         <div class="">
           <div class="tile">
-            <h3 class="tile-title">Most Visit School/University</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
+            <h3 class="tile-title">MOST VISIT SCHOOL/UNIVERSITY</h3>
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js" integrity="sha512-SuxO9djzjML6b9w9/I07IWnLnQhgyYVSpHZx0JV97kGBfTIsUYlWflyuW4ypnvhBrslz1yJ3R+S14fdCWmSmSA==" crossorigin="anonymous"></script>
+              <div style="height: 400px,width:900px,margin:auto;">
+                <canvas id="barChart"></canvas>
+              </div>
+
+              <script>
+                  var appointment =  <?php echo json_encode($appointment); ?>;
+                  var appointmentName =  <?php echo json_encode($appointmentName); ?>;
+                  var barCanvas = $("#barChart");
+                  var barChart = new Chart(barCanvas,{
+                      type:'bar',
+                      data:{
+                          labels: appointmentName,
+                          datasets:[
+                            {
+                                  label:'School/University Appointment, 2020',
+                                  data:appointment,
+                                  backgroundColor:['red','orange','yellow','green','blue','indigo','violet','purple','pink','silver','gold','brown'],
+                            }
+                        ]
+                      },
+                      options:{
+                        scales:{
+                          yAxes:[{
+                            ticks:{
+                              beginAtZero:true
+                            }
+                          }]
+                        }
+                      }
+                  });
+              </script>
+
             </div>
           </div>
         </div>

@@ -25,7 +25,7 @@ public function index()
         $noOfUploads = Book::count();
         
 
-         $users = User::select(\DB::raw("COUNT(*) as count"))
+        $users = User::select(\DB::raw("COUNT(*) as count"))
                     ->whereRoleIs('student')
                     ->where('approved', '=', 1)
                     ->whereYear('created_at', date('Y'))
@@ -46,12 +46,19 @@ public function index()
                 $datas[$month] = $users[$index];
 
         }
-        
-      
-        return view('admin.index', compact('noOfStudents', 'noOfLibrarians', 'noOfRequest', 'noOfUploads','datas'));
-        
-    }
-    public function userChart(){
+       
+        $appointment = DB::table('reservations')
+                 ->select(DB::raw('count(*) as appointment'))
+                 ->groupBy('lib_id')
+                 ->pluck('appointment');
 
+        $authorizedRoles = ['librarian','superadministrator'];
+        $appointmentName = User::whereHas('roles', static function ($query) use ($authorizedRoles) {
+                    return $query->whereIn('name', $authorizedRoles);
+                })->where('approved', '=', 1)->pluck('name');
+        
+
+        return view('admin.index', compact('noOfStudents', 'noOfLibrarians', 'noOfRequest', 'noOfUploads','datas','appointment','appointmentName'));
+  
     }
 }

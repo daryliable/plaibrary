@@ -14,7 +14,7 @@ Route::get('/error', 'HomeController@approval')->name('error.login');
 
 /*LOGIN ROUTES*/
 Route::get('/admin/dashboard', 'Admin\SuperadminController@index')->name('superadmin.dashboard');
-Route::get('/librarian/dashboard', 'Librarian\LibrarianController@index')->name('librarian.dashboard');
+
 Route::get('/student', 'Student\StudentController@index')->name('student.dashboard'); 
 
 Auth::routes();
@@ -68,7 +68,7 @@ Route::patch('/student/profile/update', 'Student\ProfileController@update')->nam
 Route::patch('/student/password/update', 'Student\ProfileController@updatepassword')->name('student.profile.updatepassword');
 
 //////////////////////////////////////////// LIBRARIAN ROUTES////////////////////////////////////////////////////////
-Route::get('/view_book', 'Librarian\BookController@index');
+Route::get('/view_book', 'Librarian\BookController@index')->name('librarian.dashboard');
 Route::post('/lib_addbook', 'Librarian\BookController@addbook');
 Route::get('/lib_editBook', 'Librarian\BookController@editBook');
 Route::post('/lib_editBookList', 'Librarian\BookController@editBookList');
