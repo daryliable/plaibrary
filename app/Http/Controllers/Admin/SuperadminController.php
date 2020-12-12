@@ -52,13 +52,22 @@ public function index()
                  ->groupBy('lib_id')
                  ->pluck('appointment');
 
+        $university = DB::table('reservations')
+                 ->groupBy('lib_id')
+                 ->pluck('lib_id');
+        
+     
+      
+
+ 
         $authorizedRoles = ['librarian','superadministrator'];
         $appointmentName = User::whereHas('roles', static function ($query) use ($authorizedRoles) {
-                    return $query->whereIn('name', $authorizedRoles);
-                })->where('approved', '=', 1)->pluck('name');
-        
+                   return $query->whereIn('name', $authorizedRoles);
+             })->where('approved', '=', 1)->get();
+       
+      
 
-        return view('admin.index', compact('noOfStudents', 'noOfLibrarians', 'noOfRequest', 'noOfUploads','datas','appointment','appointmentName'));
+        return view('admin.index', compact('noOfStudents', 'noOfLibrarians', 'noOfRequest', 'noOfUploads','datas','appointment','university'));
   
     }
 }

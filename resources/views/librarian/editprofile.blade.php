@@ -4,7 +4,7 @@
 
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-user"></i> Edit Profile</h1>
+          <h1>Edit Profile</h1>
         </div> 
       </div>
 

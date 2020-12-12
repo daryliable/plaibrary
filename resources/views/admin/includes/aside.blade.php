@@ -2,9 +2,11 @@
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
       <div class="app-sidebar__user">
-        @if (Auth::user()->profile->image_url)
-        <img class="app-sidebar__user-avatar" src="{{ URL::asset('images/user_images/' . Auth::user()->profile->image_url) }}" width="48" height="48" alt="User Image">
-         @endif
+        @if(!is_null(Auth::user()->profile->image_url))
+        <img class="app-sidebar__user-avatar"  src="{{ URL::asset('images/user_images/' . Auth::user()->profile->image_url) }}" width="48" height="48" alt="User Image">
+        @else
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="app-sidebar__user-avatar" alt="avatar" width="48" height="48">
+        @endif
         <div>
           <p class="app-sidebar__user-name">{{Auth::user()->name}}</p>
           <p class="app-sidebar__user-designation">Admin</p>
@@ -12,6 +14,14 @@
       </div>
       <ul class="app-menu ">
         <li class=""><a class="app-menu__item {{ Request::path() ==  'admin/dashboard' ? 'active' : ''  }} " href="{{ route('superadmin.dashboard') }}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+          <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">User Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a  class="treeview-item {{ Request::path() ==  'create/users' ? 'active' : ''  }}" href="{{ route('create.view.user') }}"><i class="icon fa fa-circle-o"></i>Add Users</a></li>
+             <li><a class="treeview-item {{ Request::path() ==  'pendinguser' ? 'active' : ''  }}" href="{{ url('/pendinguser')}}"><i class="icon fa fa-circle-o"></i>Pending Users</a></li>
+            <li><a  class="treeview-item {{ Request::path() ==  'students' ? 'active' : ''  }}" href="{{ route('view.list.student') }}"><i class="icon fa fa-circle-o"></i>List of students</a></li>
+            <li><a class="treeview-item {{ Request::path() ==  'librarians' ? 'active' : ''  }}" href="{{ route('view.list.librarian')}} "><i class="icon fa fa-circle-o"></i> List of Librarians</a></li> 
+          </ul>
+        </li>
            <li class=""><a class="app-menu__item {{ Request::path() ==  'bookmgnt' ? 'active' : ''  }}" href="{{ url('/bookmgnt')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Book Management</span></a></li>
 
           <li class=""><a class="app-menu__item {{ Request::path() ==  'pending/appointment' ? 'active' : ''  }}" href="{{ url('/pending/appointment')}}"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Pending Appointment</span></a></li>
@@ -22,16 +32,9 @@
             <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li>
             <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li>
           </ul> -->
-        </li>
+      
      
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">User Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a  class="treeview-item {{ Request::path() ==  'create/users' ? 'active' : ''  }}" href="{{ route('create.view.user') }}"><i class="icon fa fa-circle-o"></i>Add Users</a></li>
-            <li><a  class="treeview-item {{ Request::path() ==  'students' ? 'active' : ''  }}" href="{{ route('view.list.student') }}"><i class="icon fa fa-circle-o"></i>List of students</a></li>
-            <li><a class="treeview-item {{ Request::path() ==  'librarians' ? 'active' : ''  }}" href="{{ route('view.list.librarian')}} "><i class="icon fa fa-circle-o"></i> List of Librarians</a></li>
-          </ul>
-          <li class=""><a class="app-menu__item {{ Request::path() ==  'pendinguser' ? 'active' : ''  }}" href="{{ url('/pendinguser')}}"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Pending User</span></a></li>
-        
+
         
         <!-- <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Add Reservation</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">

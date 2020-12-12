@@ -6,7 +6,7 @@
 
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-th-list"></i> Book Management</h1>
+          <h1>Book Management</h1>
         </div> 
       </div>
       @include('admin.includes.success')
@@ -34,6 +34,10 @@
                                 </div>
                                  <div class="form-group">
                                   <input type="number" class="form-control" name="book_quantity" placeholder="Number of Copies" required="required">
+                                </div>
+                                <div class="form-group">
+                                   <label>Call Number</label>
+                                  <input type="tel" class="form-control" name="call_number" placeholder="09123456789" required="required">
                                 </div>
                                 <div class="form-group">
                                   <label for="description">Book Description</label>

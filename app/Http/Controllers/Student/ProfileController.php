@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Student;
 use App\User;
+use App\Profile;
+use App\Reservation;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,11 +14,13 @@ class ProfileController extends Controller
     {
         $this->middleware('role:student');
     }
-   public function profile(User $user)
+
+    public function profile(User $user)
     {
         $id = Auth::user()->id;
         $student = User::findOrFail($id);
-      return  view('student.profile', compact('student')); 
+        $myborrowbooks = Reservation::where('student_id', $id)->where('status', '=', 2)->get();
+      return  view('student.profile', compact('student','myborrowbooks')); 
     }
 
      public function edit(User $user)
@@ -25,25 +29,50 @@ class ProfileController extends Controller
         $student = User::findOrFail($id);
       return  view('student.editprofile', compact('student')); 
     }
-    public function update(User $user)
+    public function update(Request $request)
     {
          $id = Auth::user()->id;
         $user = User::findOrFail($id);
 
-        $data2 = request()->validate([
-        'name' => 'required',     
-        ]);
-        $user->update($data2);
-
-        $data = request()->validate([
+        $rules = [
+            'name' => '',
             'gender' => '',
             'civil' => '',
             'birthdate' => '',
             'address' => '',
             'contact_num' => '',
-        ]);
+            'coll_univ' => '',
+        ];    
 
-        $user->profile->update($data);
+         if ($request->has('profile')) {
+            $rules['profile'] = 'mimes:jpeg,jpg,png,gif|required|max:10000';
+        }
+
+        $this->validate($request, $rules);
+
+        if ($request->has('profile')) {
+             $time = time();
+             $destination =  public_path() . '/images/user_images/' . $time .'_' .  str_replace(' ', '_', $request->file('profile')->getClientOriginalName());
+             $imageName = $time . '_' . $request->file('profile')->getClientOriginalName();
+             move_uploaded_file($request->file('profile'), $destination);
+        }
+        $user->name = $request->name;
+
+        $profile = [
+                'gender' => $request->gender,
+                'civil' => $request->civil,
+                'birthdate' => $request->birthdate,
+                'address' => $request->address,
+                'contact_num' => $request->contact_num,
+                'coll_univ' => $request->coll_univ,
+        ];
+
+        if ($request->has('profile') && $imageName) {
+            $profile['image_url'] = $imageName;
+         }
+      
+        $user->save();
+        $editProfileupdate = Profile::where ('id',  $id)->update($profile);
         return redirect()->route('student.profile.show')->with('success', 'Successfully updated profile.');
     }
        public function updatepassword(Request $request, User $user){

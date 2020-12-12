@@ -61,6 +61,8 @@ Route::patch('/admin/profile/update', 'Admin\ProfileController@update')->name('a
 Route::patch('/admin/password/update', 'Admin\ProfileController@updatepassword')->name('admin.profile.updatepassword');
 
 //////////////////////////////////////////// STUDENT ROUTES ///////////////////////////////////////////////////////////
+Route::get('/student/search', 'student\SearchController@filter')->name('student.search');
+
 Route::post('/reserve_book/{book}', 'Student\StudentController@reserve');
 Route::get('/student/profile', 'Student\ProfileController@profile')->name('student.profile.show');
 Route::get('/edit', 'Student\ProfileController@edit')->name('student.profile.edit');

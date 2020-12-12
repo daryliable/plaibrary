@@ -3,7 +3,7 @@
   <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-th-list"></i> User Management</h1>
+          <h1>User Management</h1>
         </div> 
       </div>
       @include('admin.includes.success')
@@ -36,10 +36,11 @@
                                 <div class="form-group">
                                   <label for="role">User Role</label>
                                  <select class="form-control" name='roles'>
-                                      <option value="" selected="selected">Select A Role</option> 
-                                      @foreach($roles as $id => $role)
-                                          <option value="{!! $role->id !!}">{!! $role->name !!}</option>
-                                      @endforeach
+                                      <option value="" selected="selected">Select A Role</option>  
+                                          <option value="1">Super Admin</option>
+                                          <option value="2">Librarian</option>
+                                          <option value="3">Student/User</option>
+                                      
                                   </select>
                                 </div>
 

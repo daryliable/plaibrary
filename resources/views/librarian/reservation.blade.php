@@ -3,7 +3,7 @@
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-th-list"></i> Appointment</h1>
+          <h1>Appointment</h1>
         </div> 
       </div>
       

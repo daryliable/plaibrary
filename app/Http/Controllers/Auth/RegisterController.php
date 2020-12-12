@@ -63,21 +63,21 @@ class RegisterController extends Controller
     {
         $user = User::create([
             'name' => $data['name'],
-            'call_num' => $data['call_num'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
              ]);
-           
+
+        $test = request()->validate([
+             'gender' => '',
+             'contact_num' => '',
+             'address' => '',
+            ]);
+
+        $user->profile->save($test);
         $roles = $data['roles'];
         $user->save();
         $user->attachRoles(explode(',', $roles));
         return $user;
     }
-    protected function registered(Request $request, $user)
-{
-    $data = request()->validate([
-     'gender' => '',
-      ]);
-     $user->profile->update($data);
-}
+    
 }

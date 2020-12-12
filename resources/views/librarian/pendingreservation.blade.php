@@ -3,7 +3,7 @@
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-th-list"></i> Pending Appointment</h1>
+          <h1>Pending Appointment</h1>
         </div> 
       </div>
       @include('librarian.includes.success')
@@ -36,7 +36,7 @@
                  <tr>
                     <th>{{ $reservation->id}}</th>
                     <th>{{ $reservation->book_name}}</th>
-                    <th>{{ $reservation->user_id }}</th>
+                    <th>{{ $reservation->student_id }}</th>
                     <th>{{ $reservation->created_at }}</th>
                      <td>
                       <a href="/lib_reserved/{{$reservation->id}}" type="button" class="btn btn-success">Accepts</a>

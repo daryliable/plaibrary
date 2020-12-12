@@ -278,39 +278,38 @@
             <h4 class="tile-title folder-head">Filter Search</h4>
             
             <div class="tile-body">
-              <form class="text-center form-inline">
-                <ul class="nav nav-pills flex-column mail-nav">
+              <form class="text-center form-inline" action="{{ route('student.search') }}" method="get" enctype="multipart/form-data" >
+              
+                <ul class="nav nav-pills flex-column mail-nav ">
 
                 <li class="nav-item" style="padding: 5px">
                   <div class="form-group">
                   <small class="text-muted" style="text-align: left;">Book Title</small>
-                  <input class="form-control col-12" name="title" placeholder="Enter Book Title">
+                  <input class="form-control col-12 filter" type="search" name="book_name" placeholder="Enter Book Title">
                   </div>
                 </li>
 
                 <li class="nav-item" style="padding: 5px">
                   <div class="form-group">
                   <small class="text-muted" style="text-align: left;">Book Author</small>
-                  <input class="form-control col-12" name="author" placeholder="Enter Book Author">
+                  <input class="form-control col-12" type="search" name="book_author" placeholder="Enter Book Author">
                   </div>
                 </li>
 
                 <li class="nav-item" style="padding: 5px">
                   <div class="form-group">
                   <small class="text-muted" style="text-align: left;">ISBN Number</small>
-                  <input class="form-control col-12" name="isbn" placeholder="Enter ISBN Number">
+                  <input class="form-control col-12" type="search" name="id" placeholder="Enter ISBN Number">
                   </div>
                 </li>
 
                 <li class="nav-item" style="padding: 5px">
                   <div class="form-group">
                     <small class="text-muted" style="text-align: left;">Subject</small>
-                    <select class="form-control col-12" id="exampleSelect1">
-                      <option>Fiction</option>
-                      <option>Facts</option>
-                      <option>Love Story</option>
-                      <option>Mathematics</option>
-                      <option>Science</option>
+                    <select class="form-control col-12" style="font-size: 12px" id="exampleSelect1" name="subject" value="">
+                       @foreach($category as $categ)
+                        <option  value="{{ $categ->id }}">{{ $categ->genre_name }}</option>
+                       @endforeach
                     </select>
                   </div>
                 </li>
@@ -350,9 +349,9 @@
                     </p>      
                   </div>
                   @if(!is_null($book) && $book->book_quantity != 0)
-                  <button class="btn btn-common col-md-12" type="submit" >Reserve</button>
+                  <button class="btn btn-common col-md-12" style="color:#6D6666" type="submit" >Reserve</button>
                   @else
-                  <button class="btn btn-common col-md-12" type="submit" disabled="">Not Available</button>
+                  <button class="btn btn-common col-md-12" style="color:#6D6666" type="submit" disabled="">Not Available</button>
                   @endif
                 </div>
               </div>
@@ -394,7 +393,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="site-info">
-              <p>© Designed and Developed by <a href="#" rel="nofollow">MLIS Student</a></p>
+              <p> Plaibrary {{ date('Y') }} </p>
             </div>      
           </div>
         </div>

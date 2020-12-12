@@ -34,7 +34,7 @@ class StudentController extends Controller
 
     public function viewuser_prof(int $userId, Request $request){
         $user = User::findOrFail($userId);
-        $myborrowbooks = Reservation::where('student_name', $user->name)->get();
+        $myborrowbooks = Reservation::where('student_name', $user->name)->where('status', '=', 2)->get();
         return view('admin.viewstudent', compact('user', 'myborrowbooks'));
     }
 

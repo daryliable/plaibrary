@@ -74,8 +74,8 @@
 
                 <p class="cd-signin-modal__fieldset">
                   <label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signin-password">Password</label>
-                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-password" type="text" name="password" placeholder="Password">
-                  <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a> 
+                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-password" type="password" name="password" placeholder="Password">
+                  <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Show</a> 
                 </p> 
                 <p class="cd-signin-modal__fieldset">
                   <input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Login">
@@ -88,28 +88,28 @@
               <form class="cd-signin-modal__form " action="{{ route('register') }}" method="post">
                 {{ csrf_field() }}  
                   <select class="form-control" name="roles">
-                    <option value="3">Student</option>
+                    <option value="3">Student/User</option>
                     <option value="2">Librarian</option>
                   </select>  
- 
-                  <select class="form-control" name="gender">
+                
+                  <select class="form-control " style="margin-top: 15px" name="gender">
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select> 
-                  <input class="form-control" id="name" type="text" class="form-control" name="call_num" value="{{ old('call_num') }}" required autocomplete="name" placeholder="Call Number">
+               
                   
-                  <input class="form-control" id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="name">
+                  <input class="form-control" style="margin-top: 15px" id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="University/Institution">
                   
     
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+                  <input id="email" style="margin-top: 15px" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
 
-                  <input class="form-control" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
-                  <input class="form-control" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
-                  <a href="#0" class="cd-signin-modal__hide-password js-hide-password"></a>
- 
+                  <input class="form-control" style="margin-top: 15px" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+                  <input class="form-control" style="margin-top: 15px" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                  <input class="form-control" style="margin-top: 15px" type="phone" name="contact_num" placeholder="Phone Number">
+                  <input class="form-control" style="margin-top: 15px" type="address" name="address" placeholder="Address">
                   <p class="cd-signin-modal__fieldset">
                   <input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Create Account">
-                </p>
+                  </p>
                 
               </form>
             </div> <!-- cd-signin-modal__block -->
@@ -301,6 +301,17 @@
                   <button type="submit" class="btn btn-primary sub-btn" data-style="zoom-in" data-spinner-size="30" name="submit" id="submit">
                     <span class="ladda-label"><i class="lni-check-box"></i> Search</span>
                   </button>
+                <li style="padding-top: 10px">
+                  <p class="text-align">Need to visit other school? <br> Schedule an appointment now!</p>
+                </li>
+                <li>
+                  <form action="/action_page.php">
+                    <input style="padding: 40px" type="date" id="birthday" name="birthday">
+                  </form>
+                </li>
+                <li style="padding-top: 10px">
+                  <p><a href="">SIGN IN HERE!</a> <br>Don't have an account? <a href="">Click here.</a></p>
+                </li>
               </ul>
               </form>
             </div>
@@ -328,9 +339,9 @@
                     </p>      
                   </div>
                   @if(!is_null($book) && $book->book_quantity != 0)
-                  <a href="#" class="btn btn-common col-md-12" data-toggle="modal" data-signin="login">Reserve</a>
+                  <a href="#" class="btn btn-common col-md-12" style="color:#6D6666" data-toggle="modal" data-signin="login">Reserve</a>
                   @else
-                  <button class="btn btn-common col-md-12" type="submit" disabled="">Not Available</button>
+                  <button class="btn btn-common col-md-12" style="color:#6D6666" type="submit" disabled="">Not Available</button>
                   @endif
                 </div>
               </div>
@@ -370,7 +381,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="site-info">
-              <p>© Designed and Developed by <a href="#" rel="nofollow">MLIS Student</a></p>
+             <p> Plaibrary {{ date('Y') }} </p>
             </div>      
           </div>
         </div>

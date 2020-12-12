@@ -5,7 +5,7 @@
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-th-list"></i> Book Management</h1>
+          <h1>Book Management</h1>
         </div> 
       </div>
       @include('librarian.includes.success')

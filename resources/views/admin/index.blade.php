@@ -3,7 +3,7 @@
   <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
+          <h1>Dashboard</h1>
           <!-- <p>A free and open source Bootstrap 4 admin template</p> -->
         </div>
         <ul class="app-breadcrumb breadcrumb">
@@ -115,12 +115,12 @@
 
               <script>
                   var appointment =  <?php echo json_encode($appointment); ?>;
-                  var appointmentName =  <?php echo json_encode($appointmentName); ?>;
+                  var university =  <?php echo json_encode($university); ?>;
                   var barCanvas = $("#barChart");
                   var barChart = new Chart(barCanvas,{
                       type:'bar',
                       data:{
-                          labels: appointmentName,
+                          labels: university,
                           datasets:[
                             {
                                   label:'School/University Appointment, 2020',

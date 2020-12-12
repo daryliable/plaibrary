@@ -16,7 +16,9 @@ class CreateReservationsTable extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('lib_id');
+            $table->string('lib_name')->nullable();
             $table->integer('book_id')->nullable();
+            $table->integer('student_id')->nullable();
             $table->string('book_name')->nullable();
             $table->string('student_name')->nullable();
             $table->string('status')->default(0);

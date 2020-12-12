@@ -5,7 +5,7 @@
 
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-user"></i> User Profile</h1>
+          <h1>User Profile</h1>
         </div> 
       </div>
       @include('admin.includes.success')
