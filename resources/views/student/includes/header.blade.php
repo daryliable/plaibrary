@@ -22,7 +22,7 @@
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                     <a class="dropdown-item" href="{{ url('profile.show') }}">Profile</a>
+                                     <a class="dropdown-item" href="{{ route('student.profile.show') }}">Profile</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault(); 

@@ -1,17 +1,21 @@
 <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+      <div class="app-sidebar__user">
+        @if(!is_null(Auth::user()->profile->image_url))
+        <img class="app-sidebar__user-avatar"  src="{{ URL::asset('images/user_images/' . Auth::user()->profile->image_url) }}" width="48" height="48" alt="User Image">
+        @else
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="app-sidebar__user-avatar" alt="avatar" width="48" height="48">
+        @endif
         <div>
-          <p class="app-sidebar__user-name">John Doe</p>
-          <p class="app-sidebar__user-designation">Student</p>
+          <p class="app-sidebar__user-name">{{Auth::user()->name}}</p>
+          <p class="app-sidebar__user-designation">Student@app.com</p>
         </div>
       </div>
       <ul class="app-menu ">
-        <li class=""><a class="app-menu__item {{ Request::path() ==  'student' ? 'active' : ''  }} " href="{{ route('/student.dashboard') }}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-
-          <li class=""><a class="app-menu__item {{ Request::path() ==  'availablebooks' ? 'active' : ''  }} " href="{{ url('/availablebooks') }}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Available Books</span></a></li>
-           
+         <li class=""><a class="app-menu__item {{ Request::path() ==  'student' ? 'active' : ''  }}" href="{{ route('student.dashboard') }}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Books</span></a></li>
+            <li class=""><a class="app-menu__item {{ Request::path() ==  'borrowed_books' ? 'active' : ''  }}" href="{{ route('student.barrowed') }}"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Borrowed Books</span></a></li>
+           <li class=""><a class="app-menu__item {{ Request::path() ==  'pending_appointment' ? 'active' : ''  }}" href="{{ route('student.pendingapp') }}"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Pending Appointment</span></a></li>
           <!-- <ul class="treeview-menu">
             <li><a class="treeview-item" href="bootstrap-components.html"><i class="icton fa fa-circle-o"></i> Add Books</a></li>
             <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Font Icons</a></li>

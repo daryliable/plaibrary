@@ -18,7 +18,7 @@ class StudentController extends Controller
     public function index(User $user)
     {   
         $category = Genre::all();
-        $books = Book::where('id', '>' , 0)->latest()->paginate(9);
+        $books = Book::where('id', '>' , 0)->latest()->paginate(8);
         return view('student.index', compact('books','category'));
     }
 

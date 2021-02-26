@@ -13,7 +13,8 @@
         </div>
       </div>
       <ul class="app-menu ">
-          <li class=""><a class="app-menu__item {{ Request::path() ==  'view_book' ? 'active' : ''  }}" href="{{ url('/view_book')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Book Management</span></a></li>
+          <li class="treeview"><a class="app-menu__item {{ Request::path() ==  'librarian_dashboard' ? 'active' : ''  }}" href="{{ route('librarian.dashboard') }}" ><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Dashboard</span><i class="app-menu__label"></i></a>
+          <li class=""><a class="app-menu__item {{ Request::path() ==  'view_book' ? 'active' : ''  }}" href="{{ url('/view_book')}}"><i class="app-menu__icon  fa fa-file-text "></i><span class="app-menu__label">Book Management</span></a></li>
             <li class=""><a class="app-menu__item {{ Request::path() ==  'pending' ? 'active' : ''  }}" href="{{ url('/pending')}}"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Pending Appointment</span></a></li>
            <li class=""><a class="app-menu__item {{ Request::path() ==  'reserved' ? 'active' : ''  }}" href="{{ url('/reserved')}}"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Appointment</span></a></li>
           <!-- <ul class="treeview-menu">

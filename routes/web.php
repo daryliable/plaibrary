@@ -64,13 +64,16 @@ Route::patch('/admin/password/update', 'Admin\ProfileController@updatepassword')
 Route::get('/student/search', 'student\SearchController@filter')->name('student.search');
 
 Route::post('/reserve_book/{book}', 'Student\StudentController@reserve');
+Route::get('/borrowed_books', 'Student\barrowedController@index')->name('student.barrowed');
+Route::get('/pending_appointment', 'Student\pendingappController@index')->name('student.pendingapp');
 Route::get('/student/profile', 'Student\ProfileController@profile')->name('student.profile.show');
 Route::get('/edit', 'Student\ProfileController@edit')->name('student.profile.edit');
 Route::patch('/student/profile/update', 'Student\ProfileController@update')->name('student.profile.update');
 Route::patch('/student/password/update', 'Student\ProfileController@updatepassword')->name('student.profile.updatepassword');
 
 //////////////////////////////////////////// LIBRARIAN ROUTES////////////////////////////////////////////////////////
-Route::get('/view_book', 'Librarian\BookController@index')->name('librarian.dashboard');
+Route::get('/librarian_dashboard', 'Librarian\LibrarianController@dashboard')->name('librarian.dashboard');
+Route::get('/view_book', 'Librarian\BookController@index');
 Route::post('/lib_addbook', 'Librarian\BookController@addbook');
 Route::get('/lib_editBook', 'Librarian\BookController@editBook');
 Route::post('/lib_editBookList', 'Librarian\BookController@editBookList');

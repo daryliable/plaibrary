@@ -11,8 +11,8 @@ class LibrarianController extends Controller
     {
         $this->middleware('role:librarian');
     }
-    public function index()
+    public function dashboard()
     {
-        return view('librarian.index');
+        return view('librarian.dashboard');
     }
 }
