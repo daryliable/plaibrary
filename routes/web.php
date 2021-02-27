@@ -64,7 +64,7 @@ Route::patch('/admin/password/update', 'Admin\ProfileController@updatepassword')
 Route::get('/student/search', 'student\SearchController@filter')->name('student.search');
 
 Route::post('/reserve_book/{book}', 'Student\StudentController@reserve');
-Route::get('/borrowed_books', 'Student\barrowedController@index')->name('student.barrowed');
+Route::get('/borrowed_books', 'Student\BorrowedController@index')->name('student.borrowed');
 Route::get('/pending_appointment', 'Student\pendingappController@index')->name('student.pendingapp');
 Route::get('/student/profile', 'Student\ProfileController@profile')->name('student.profile.show');
 Route::get('/edit', 'Student\ProfileController@edit')->name('student.profile.edit');

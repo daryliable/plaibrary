@@ -14,7 +14,7 @@
       </div>
       <ul class="app-menu ">
          <li class=""><a class="app-menu__item {{ Request::path() ==  'student' ? 'active' : ''  }}" href="{{ route('student.dashboard') }}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Books</span></a></li>
-            <li class=""><a class="app-menu__item {{ Request::path() ==  'borrowed_books' ? 'active' : ''  }}" href="{{ route('student.barrowed') }}"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Borrowed Books</span></a></li>
+            <li class=""><a class="app-menu__item {{ Request::path() ==  'borrowed_books' ? 'active' : ''  }}" href="{{ route('student.borrowed') }}"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Borrowed Books</span></a></li>
            <li class=""><a class="app-menu__item {{ Request::path() ==  'pending_appointment' ? 'active' : ''  }}" href="{{ route('student.pendingapp') }}"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Pending Appointment</span></a></li>
           <!-- <ul class="treeview-menu">
             <li><a class="treeview-item" href="bootstrap-components.html"><i class="icton fa fa-circle-o"></i> Add Books</a></li>
