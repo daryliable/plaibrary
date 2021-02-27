@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BarrowedController extends Controller
+class barrowedController extends Controller
 {
     public function index(User $user){ 
 
