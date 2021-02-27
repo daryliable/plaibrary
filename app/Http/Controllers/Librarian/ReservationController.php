@@ -31,8 +31,11 @@ class ReservationController extends Controller
     }
 
     public function list_approved(){
-
-        $reservations = Reservation::where('status', '=', 2)->get();
+        $id = Auth::user()->id;
+        $reservations = Reservation::where([
+           'status' => 2,
+           'lib_id' => $id,
+        ])->get();
         return view('librarian.reservation', compact('reservations'));
     }
 
