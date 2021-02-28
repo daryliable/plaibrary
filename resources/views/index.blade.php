@@ -3,33 +3,20 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
- 
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Plaibrary</title>
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/bootstrap.min.css')}}" >
-    <!-- Icon -->
     <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/fonts/line-icons.css')}}">
-    <!-- Slicknav -->
     <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/slicknav.css')}}">
-    <!-- Nivo Lightbox -->
     <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/nivo-lightbox.css')}}" >
-    <!-- Animate -->
     <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/animate.css')}}">
-    <!-- Main Style -->
     <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/main.css')}}">
-    <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/responsive.css')}}">
-
     <link rel="stylesheet" type="text/css" href="{{ asset ('../css/main.css')}}">
-
-    <!-- <link rel="stylesheet" type="text/css" href="../logins/css/reset.css"> --> <!-- CSS reset -->
     <link rel="stylesheet" type="text/css" href="{{ asset('../logins/css/style.css')}}"> <!-- Resource style -->
+    <!-- <link rel="stylesheet" type="text/css" href="../logins/css/reset.css"> --> <!-- CSS reset -->
     <!-- <link rel="stylesheet" type="text/css" href="../logins/css/demo.css"> --> <!-- Demo style -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-  @stack('page-css')
   </head>
   <body>
 
