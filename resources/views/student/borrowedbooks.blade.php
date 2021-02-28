@@ -29,10 +29,10 @@
                         <tbody>
                           <td>{{$row->id}}</td>
                           <td>{{$row->book_name}}</td>
-                          <td>a</td>
-                          <td>a</td>
+                          <td>{{$row->profile->coll_univ}}</td>
+                          <td>{{$row->lib_name}}</td>
                           <td>{{$row->created_at}}</td>
-                          <td>a</td>
+                          <td>@if($row->return_date != "") {{$row->return_date}} @else N/A @endif</td>
                           
                           <td>
                           <a href="" type="button" class="btn btn-primary">Return</a>

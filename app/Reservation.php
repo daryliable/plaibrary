@@ -12,4 +12,10 @@ class Reservation extends Model
     protected $guarded = []; 
     protected $fillable = [];
     protected $table = 'reservations'; //
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class, 'id', 'lib_id');
+    }
+
 }
