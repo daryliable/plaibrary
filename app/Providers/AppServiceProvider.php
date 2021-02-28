@@ -29,11 +29,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Charts $charts, UrlGenerator $url)
     {  
-      
-       if (env('REDIRECT_HTTPS')) {
+        if (env('REDIRECT_HTTPS')) {
             $url->formatScheme('https');
         }
-
+       if(env('APP_ENV') !== 'local'){
+            URL::forceScheme('https');
+       }
         Schema::defaultstringLength(191);
         $charts->register([
             \App\Charts\UserStatChart::class
