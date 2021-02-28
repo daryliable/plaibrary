@@ -1,6 +1,6 @@
 @include('student.includes.header')
 @include('student.includes.aside')
-  <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/main.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{URL::asset('../grandcss/css/main.css')}}">
   <main class="app-content">
       <div class="app-title">
         <div>
@@ -22,7 +22,7 @@
              <div class="col-md-4">
                 <div class="bookcard">
                   <div class="bookimgBox">
-                    <img src="{{ URL::asset('images/book_images/' . $book->image_url) }}" width="200" height="300">
+                    <img src="{{URL::asset('images/book_images/' . $book->image_url) }}" width="200" height="300">
                   </div>
                   <div class="bookdetails">
                     <h6>{{$book->book_name}}</h6>
@@ -55,13 +55,13 @@
 @include ('student.includes.footer')
 
     <!-- Data table plugin-->
-    <script type="text/javascript" src="../js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="../js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{URL::asset('../js/plugins/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" src=" {{URL::asset('../js/plugins/dataTables.bootstrap.min.js')}}"></script>
     <script type="text/javascript">$('#sampleTable').DataTable();</script>
 
 
 
 <!--          <div class="col-md-9">
-          
+         {{URL::asset('')}} 
         </div>
          -->

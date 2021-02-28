@@ -400,14 +400,14 @@
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     
-    <script src="{{ asset('../grandcss/js/jquery-min.js')}}"></script>
-    <script src="{{ asset('../grandcss/js/popper.min.js')}}"></script>
-    <script src="{{ asset('../grandcss/js/bootstrap.min.js')}}"></script> 
-    <script src="{{ asset('../grandcss/js/jquery.easing.min.js')}}"></script>
-    <script src="{{ asset('../grandcss/js/wow.js')}}"></script>
-    <script src="{{ asset('../grandcss/js/jquery.slicknav.js')}}"></script>
-    <script src="{{ asset('../grandcss/js/nivo-lightbox.js')}}"></script>
-    <script src="{{ asset('../grandcss/js/main.js')}}"></script>  
+    <script src="{{URL::asset('../grandcss/js/jquery-min.js')}}"></script>
+    <script src="{{URL::asset('../grandcss/js/popper.min.js')}}"></script>
+    <script src="{{URL::asset('../grandcss/js/bootstrap.min.js')}}"></script> 
+    <script src="{{URL::asset('../grandcss/js/jquery.easing.min.js')}}"></script>
+    <script src="{{URL::asset('../grandcss/js/wow.js')}}"></script>
+    <script src="{{URL::asset('../grandcss/js/jquery.slicknav.js')}}"></script>
+    <script src="{{URL::asset('../grandcss/js/nivo-lightbox.js')}}"></script>
+    <script src="{{URL::asset('../grandcss/js/main.js')}}"></script>  
     <!-- Essential javascripts for login to work-->
     <script src="{{ asset('../logins/js/placeholders.min.js')}}"></script> <!-- polyfill for the HTML5 placeholder attribute -->
     <script src="{{ asset('../logins/js/main.js')}}"></script> <!-- Resource JavaScript -->
