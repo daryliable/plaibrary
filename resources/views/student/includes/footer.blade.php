@@ -1,4 +1,4 @@
-<!-- Essential javascripts for application to work-->
+
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -52,7 +52,7 @@
       var lineChart = new Chart(ctxl).Line(data);
       
       var ctxp = $("#pieChartDemo").get(0).getContext("2d");
-      var pieChart = new Chart(ctxp).Pie(pdata);
+      //var pieChart = new Chart(ctxp).Pie(pdata);
     </script>
 
     <!-- Calendar Plugin-->
