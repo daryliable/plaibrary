@@ -28,7 +28,8 @@
     <!-- <link rel="stylesheet" type="text/css" href="../logins/css/reset.css"> --> <!-- CSS reset -->
     <link rel="stylesheet" type="text/css" href="{{ asset('../logins/css/style.css')}}"> <!-- Resource style -->
     <!-- <link rel="stylesheet" type="text/css" href="../logins/css/demo.css"> --> <!-- Demo style -->
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+  @stack('page-css')
   </head>
   <body>
 

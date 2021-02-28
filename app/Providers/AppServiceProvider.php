@@ -15,22 +15,23 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
     
-        if (env('REDIRECT_HTTPS')) {
-            $this->app['request']->server->set('HTTPS', true);
-        }
+       
     }
 
     /**
+     if (env('REDIRECT_HTTPS')) {
+            $this->app['request']->server->set('HTTPS', true);
+        }
+         if (env('REDIRECT_HTTPS')) {
+            $url->formatScheme('https');
+        }
      * Bootstrap any application services.
      *
      * @return void
      */
     public function boot(Charts $charts, UrlGenerator $url)
     {  
-        if (env('REDIRECT_HTTPS')) {
-            $url->formatScheme('https');
-        }
-
+       
         Schema::defaultstringLength(191);
         $charts->register([
             \App\Charts\UserStatChart::class
