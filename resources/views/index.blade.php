@@ -192,7 +192,7 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="grandcss/img/slider/bookslide3.jpg" alt="First slide">
+            <img class="d-block w-100" src="{{URL::asset('grandcss/img/slider/bookslide3.jpg')}}" alt="First slide">
             <div class="carousel-caption d-md-block">
               <p class="fadeInUp wow" data-wow-delay=".6s">Global Grand Event on Digital Library</p>
               <h1 class="wow fadeInDown heading" data-wow-delay=".4s">To build up a library is to create a life. It's never just a random collection of books.</h1>
@@ -201,7 +201,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="grandcss/img/slider/bookslide2.jpg" alt="Second slide">
+            <img class="d-block w-100" src="{{URL::asset('grandcss/img/slider/bookslide2.jpg')}}" alt="Second slide">
             <div class="carousel-caption d-md-block">
               <p class="fadeInUp wow" data-wow-delay=".6s">Global Grand Event on Digital Library</p>
               <h1 class="wow bounceIn heading" data-wow-delay=".7s">A library is a place where you learn what teachers were afraid to teach you.</h1>
@@ -209,7 +209,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="grandcss/img/slider/bookslide1.jpg" alt="Third slide">
+            <img class="d-block w-100" src="{{URL::asset('grandcss/img/slider/bookslide1.jpg')}}" alt="Third slide">
             <div class="carousel-caption d-md-block">
               <p class="fadeInUp wow" data-wow-delay=".6s">Global Grand Event on Digital Library</p>
               <h1 class="wow fadeInUp heading" data-wow-delay=".6s">A library is not a luxury but one of the necessities of life.</h1>
