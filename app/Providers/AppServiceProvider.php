@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Charts $charts)
     {  
-        $this->app['request']->server->set['HTTPS', 'on'];
+        
         Schema::defaultstringLength(191);
         $charts->register([
             \App\Charts\UserStatChart::class
