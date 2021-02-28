@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class pendingappController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:student');
+    }
     public function index( Reservation $reservations){
         
         $id = Auth::user()->id;

@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class BorrowedController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:student');
+    }
+    
      public function index(){
      $id = Auth::user()->id;
      $myborrowbooks = Reservation::where('student_id', $id)->where('status', '=', 2)->get();
