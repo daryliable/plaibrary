@@ -35,10 +35,7 @@
                                  <div class="form-group">
                                   <input type="number" class="form-control" name="book_quantity" placeholder="Number of Copies" required="required">
                                 </div>
-                                <div class="form-group">
-                                   <label>Call Number</label>
-                                  <input type="tel" class="form-control" name="call_number" placeholder="09123456789" required="required">
-                                </div>
+                                
                                 <div class="form-group">
                                   <label for="description">Book Description</label>
                                   <textarea class="form-control" name="description" id="description" rows="3" required="required"></textarea>
@@ -94,6 +91,7 @@
                     <th>No.</th>
                     <th>Book Uploader</th>
                     <th>Book Title</th>
+                    <th>Contact Number</th>
                     <th>Book Description</th>
                     <th>Category/Genre</th>
                     <th>Book Author</th>
@@ -170,6 +168,7 @@
                     <td>{{ $row->id }}</td>
                     <td>{{ $row->book_uploader }}</td>
                     <td>{{ $row->book_name }}</td>
+                    <td>{{ $row->profile->contact_num }}</td>
                     <td>{{ $row->book_description }}</td>
                     <td>{{ $row->genre->genre_name }}</td>
                     <td>{{ $row->book_author }}</td>

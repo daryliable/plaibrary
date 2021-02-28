@@ -48,10 +48,9 @@
         }
       ]
       
-      var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-      var lineChart = new Chart(ctxl).Line(data);
-      
-      var ctxp = $("#pieChartDemo").get(0).getContext("2d");
+      //var ctxl = $("#lineChartDemo").get(0).getContext("2d");
+      //var lineChart = new Chart(ctxl).Line(data);
+      //var ctxp = $("#pieChartDemo").get(0).getContext("2d");
       //var pieChart = new Chart(ctxp).Pie(pdata);
     </script>
 

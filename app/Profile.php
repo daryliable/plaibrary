@@ -19,4 +19,7 @@ class Profile extends Model
     public function reservation(){
         return $this->belongsTo(Reservation::class);
     }
+    public function book(){
+        return $this->belongsTo(Book::class);
+    }
 }

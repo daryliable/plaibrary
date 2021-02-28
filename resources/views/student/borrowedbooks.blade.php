@@ -35,7 +35,7 @@
                           <td>@if($row->return_date != "") {{$row->return_date}} @else N/A @endif</td>
                           
                           <td>
-                          <a href="" type="button" class="btn btn-primary">Return</a>
+                          <a href="return/{{$row->id}}" type="button" class="btn btn-primary">RETURN</a>
                           </td>
                         </tbody>
                         @endforeach 

@@ -35,7 +35,7 @@
                           <td>@if($row->return_date != "") {{$row->return_date}} @else N/A @endif</td>
                           
                           <td>
-                          <span class="badge badge-warning"><h6>WAITING</h6></span>
+                          <span class="badge badge-warning"><h6>PENDING</h6></span>
                           </td>
                         </tbody>
                         @endforeach 
