@@ -15,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-     if (env('REDIRECT_HTTPS')) {
+     if (env('REDIRECT_HTTPS')){
+
         $this->app['request']->server->set('HTTPS', true);
         }
     }
@@ -30,8 +31,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(Charts $charts, UrlGenerator $url)
     {  
         Schema::defaultstringLength(191);
-
         if (env('REDIRECT_HTTPS')) {
+
             $url->formatScheme('https');
         }
         
