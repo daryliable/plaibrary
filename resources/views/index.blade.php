@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Plaibrary</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/bootstrap.min.css')}}" >
-    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/fonts/line-icons.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/slicknav.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/nivo-lightbox.css')}}" >
-    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/animate.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/main.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset ('../grandcss/css/responsive.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset ('../css/main.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('../logins/css/style.css')}}"> <!-- Resource style -->
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('../grandcss/css/bootstrap.min.css')}}" >
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('../grandcss/fonts/line-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('../grandcss/css/slicknav.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('../grandcss/css/nivo-lightbox.css')}}" >
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('../grandcss/css/animate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('../grandcss/css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('../grandcss/css/responsive.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('../css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('../logins/css/style.css')}}"> <!-- Resource style -->
     <!-- <link rel="stylesheet" type="text/css" href="../logins/css/reset.css"> --> <!-- CSS reset -->
     <!-- <link rel="stylesheet" type="text/css" href="../logins/css/demo.css"> --> <!-- Demo style -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
