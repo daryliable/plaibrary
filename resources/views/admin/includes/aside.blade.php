@@ -2,11 +2,9 @@
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
       <div class="app-sidebar__user">
-        @if(!is_null(Auth::user()->profile->image_url))
-        <img class="app-sidebar__user-avatar"  src="{{ URL::asset('images/user_images/' . Auth::user()->profile->image_url) }}" width="48" height="48" alt="User Image">
-        @else
+      
         <img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="app-sidebar__user-avatar" alt="avatar" width="48" height="48">
-        @endif
+  
         <div>
           <p class="app-sidebar__user-name">{{Auth::user()->name}}</p>
           <p class="app-sidebar__user-designation">{{Auth::user()->email}}</p>
