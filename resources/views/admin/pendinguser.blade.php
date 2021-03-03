@@ -15,9 +15,8 @@
               <!-- <button type="button" class="btn btn-primary pull-right" style="margin: 2px"><span class="badge"><i class="fa fa-plus"></i></span> Patient</button> -->
                   <!-- For Edit -->
 
-              <table class="table table-hover table-bordered" id="sampleTable">
+              <table class="table table-hover table-bordered " id="sampleTable">
                 <thead>
-
                   <tr>
                     <th>Name</th>
                     <th>Email</th>

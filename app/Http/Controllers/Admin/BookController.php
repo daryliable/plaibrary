@@ -28,7 +28,9 @@ class BookController extends Controller
             $user = Auth::user();
             $rules = [
                 'bookname' => 'required|unique:books,book_name,',
+                'institution' => 'required',
                 'book_quantity' => 'required',
+                'call_num' => 'required',
                 'description' => 'required',
                 'genre' => 'required',
                 'author' => 'required',
@@ -56,7 +58,9 @@ class BookController extends Controller
         }
 
         $book->book_uploader = $user->name;
+        $book->institution = $request->institution;
         $book->book_name = $request->bookname;
+        $book->call_num = '63' . $request->call_num;
         $book->book_quantity = $request->book_quantity;
         $book->book_description = $request->description;
         $book->genre_id = $request->genre;
@@ -78,6 +82,8 @@ class BookController extends Controller
     {
       $rules = [
                 'edit_bookname' => 'required',
+                'edit_institution' => 'required',
+                'edit_call_num' => 'required',
                 'edit_book_quantity' => 'required',
                 'edit_description' => 'required',
                 'edit_genre' => 'required',
@@ -103,6 +109,8 @@ class BookController extends Controller
 
         $book = [
                 'book_name' => $request->edit_bookname,
+                'institution' => $request->edit_institution,
+                'call_num' => $request->edit_call_num,
                 'book_quantity' => $request->edit_book_quantity,
                 'book_description' => $request->edit_description,
                 'genre_id' => $request->edit_genre,

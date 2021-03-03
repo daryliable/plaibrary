@@ -21,12 +21,14 @@ class BorrowedController extends Controller
 }
     public function return(Book $book, $reservation_id){
     $reservation = Reservation::where('id',  $reservation_id);
-    $reservation->status = 0;
+    $resUpdate = [
+        'status' => $reservation->status = 3,
+    ];
     $book_id = $reservation->value('book_id');
     $book = Book::findOrFail($book_id);
     $book->book_quantity = $book->book_quantity+1;
     $book->save();  
-    $reservation->delete();  
+    $updateReservation = Reservation::where ('id', $reservation_id)->update($resUpdate);
     return back()->with('success', 'Succesfully returned the book.');
     }
 }

@@ -3,7 +3,7 @@
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1>Barrowed Books</h1>
+          <h1>Pending Books</h1>
         </div> 
       </div>
       @include('includes.success')

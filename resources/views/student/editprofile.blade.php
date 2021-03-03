@@ -64,7 +64,22 @@
                   </div>
                   </div>
                   
-                  <br><div class="form-row">
+                  
+                  </div>
+                  
+
+                  <div class="col-6">
+                    
+                     
+                     <div style="padding-top: 33px;" class="form-row">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Profile picture</span>
+                        </div>
+                            <input class="form-control" type="file" name="profile" aria-describedby="fileHelp"> 
+                      </div>
+                    </div>
+                    <br><div class="form-row">
                   <div class="input-group">
                       <div class="input-group-prepend">
                             <span class="input-group-text">Address</span>
@@ -81,38 +96,8 @@
                       <input name="contact_num" type="text" class="form-control" value="{{ $student->profile->contact_num ?? ''}}" > 
                     </div>
                     </div>
-                  </div>
-                  
 
-                  <div class="col-6">
-                    
-                     <h4>Profile</h4>
-                     <div class="form-row">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Profile picture</span>
-                        </div>
-                            <input class="form-control" type="file" name="profile" aria-describedby="fileHelp"> 
-                      </div>
-                    </div>
-
-                    <br><div class="form-row">
-                          <div class="input-group">
-                              <div class="input-group-prepend">
-                                  <span class="input-group-text">Designation</span>
-                              </div>
-                              <input type="text" class="form-control" placeholder="Designation" name="designation" value="{{$student->profile->designation ?? ''}}" > 
-                          </div>
-                        </div>
-
-                     <br><div class="form-row">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Occupation</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Occupation" name="occupation" value="{{$student->profile->occupation ?? ''}}" > 
-                            </div>
-                          </div>
+          
                                  
                                   <br><div class="form-row">
                                       <div class="input-group">

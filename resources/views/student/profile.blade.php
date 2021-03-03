@@ -66,9 +66,11 @@
                     <input type="text" class="form-control" id="datepickerprofile" name="birthdate" value="{{$student->profile->birthdate ?? ''}}" disabled> 
                   </div>
                   </div>
-
+                  </div>
                   
-                  <br><div class="form-row">
+
+                  <div class="col-6">
+                    <div style="padding-top: 33px;" class="form-row">
                   <div class="input-group">
                       <div class="input-group-prepend">
                             <span class="input-group-text">Address</span>
@@ -85,34 +87,12 @@
                       <input type="text" class="form-control" value="{{$student->profile->contact_num ?? ''}}" disabled> 
                     </div>
                     </div>
-                  </div>
-                  
-
-                  <div class="col-6">
-                     <h4>Profile</h4>
-                                  <div class="form-row">
-                                      <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text">Designation</span>
-                                        </div>
-                                         <input type="text" class="form-control" placeholder="" name="Designation" value="{{$user->profile->designation ?? ''}}" disabled> 
-                                    </div>
-                                 </div>
-                                <br><div class="form-row">
-                                      <div class="input-group">
-                                        <div class="input-group-prepend">
-                                          <span class="input-group-text">Occupation</span>
-                                        </div>
-                                         <input type="text" class="form-control" placeholder="" name="Occupation" value="{{$student->profile->occupation ?? ''}}" disabled> 
-                                    </div>
-                                 </div>
-                                 
-                                  <br><div class="form-row">
+                                 <br> <div  class="form-row">
                                       <div class="input-group">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">College/University</span>
                                         </div>
-                                         <input type="text" class="form-control" placeholder="" name="College_University" value="{{$user->profile->coll_univ ?? ''}}" disabled> 
+                                         <input type="text" class="form-control" placeholder="" name="College_University" value="{{$student->profile->coll_univ ?? ''}}" disabled> 
                                     </div>
                                  </div>                  </div>
                 </div>

@@ -13,35 +13,37 @@
           <div class="tile">
             <div class="tile-body">
               <!-- <button type="button" class="btn btn-primary pull-right" style="margin: 2px"><span class="badge"><i class="fa fa-plus"></i></span> Patient</button> -->
-               <table class="table table-hover table-bordered" id="sampleTable">
+               <table class="table table-hover table-bordered table-responsive" id="sampleTable">
                 <thead>
 
                   <tr>
                     <th>Reservation ID</th>
                     <th>Book ID</th>
-                    <th>User ID</th>
+                    <th>Student ID</th>
                     <th>Appointment Date</th>
-                    <th>Univeristy/Institution</th>
+                    <th>Book Owner</th>
+                    <th>Student Name</th>
+                    <th>College/Univeristy</th>
                     <th>Remarks</th>
-                    
                   </tr>
                 </thead>
+                @foreach($reservations as $reservation)
                 <tbody>
-                  @foreach($reservations as $reservation)
-                   <tr>
+                  <tr>
                     <td>{{ $reservation->id}}</td>
-                    <td>{{ $reservation->book_id }}</td>
-                    <td>{{ $reservation->user_id }}</td>
+                    <td>{{ $reservation->book_id }}</td>                 
+                    <td>{{ $reservation->student_id }}</td>
                     <td>{{ $reservation->created_at }}</td>
-                    <td>a</td>
+                    <td>{{ $reservation->lib_name }}</td>
+                    <td>{{ $reservation->student_name }}</td>
+                    <td>{{ $reservation->college }}</td>
                      <td>
-                      <a href="/reserved/{{$reservation->id}}" type="button" class="btn btn-success">Accepts</a>
+                      <a href="/reserved/{{$reservation->id}}" type="button" class="btn btn-success">Accept</a>
                       <a href="/delete/reservation/{{$reservation->id}}" type="button" class="btn btn-danger">Reject</a>
                     </td>
-                  </tr>
-                  @endforeach
-               
+                    </tr>
                 </tbody>
+                 @endforeach
               </table>
               </div>
           </div>

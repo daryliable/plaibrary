@@ -7,19 +7,27 @@
           <h1>Books</h1>
         </div> 
       </div>
-
-      <div class="row">
+    @if(is_null(Auth::user()->profile->coll_univ))
+     <div class="alert alert-warning shadow">
+        <div class="card-body">
+         <b>Please!</b> update first your College/University before you proceed on borrowing books.    
+         <a class="" href="{{ route('student.profile.show') }}">Click here!</a>     
+        </div>
+    </div>
+    @endif
+      <div class="row">  
        <div class="col-md-12">
         <div class="tile">
          <div class="tile-body">
-           @include('admin.includes.success')
+          @include('admin.includes.success')
           @include('admin.includes.error')
+           <div class="col-md-12">
           <div class="tile">
           <div class="row">
           @foreach($books as $book)
            <form action="reserve_book/{{ $book->id }}" method="POST">
             @csrf
-             <div class="col-md-4">
+             <div class="col-md-4" style="padding-top: 15px;">
                 <div class="bookcard">
                   <div class="bookimgBox">
                     <img src="{{URL::asset('images/book_images/' . $book->image_url) }}" width="200" height="300">
@@ -51,6 +59,8 @@
         </div>
        </div>
       </div>
+    </div>
+  </div>
   </main>
 @include ('student.includes.footer')
 

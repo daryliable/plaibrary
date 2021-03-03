@@ -9,7 +9,7 @@
         @endif
         <div>
           <p class="app-sidebar__user-name">{{Auth::user()->name}}</p>
-          <p class="app-sidebar__user-designation">Librarian</p>
+          <p class="app-sidebar__user-designation">{{Auth::user()->email}}</p>
         </div>
       </div>
       <ul class="app-menu ">

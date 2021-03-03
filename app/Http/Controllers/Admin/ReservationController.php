@@ -27,7 +27,7 @@ class ReservationController extends Controller
 
     public function list_approved(){
 
-        $reservations = Reservation::where('status', '=', 2)->get();
+        $reservations = Reservation::whereIn('status', [2,3])->get();
         return view('admin.reservation', compact('reservations'));
     }
 

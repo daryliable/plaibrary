@@ -15,28 +15,38 @@
               
                   <!-- For Edit -->
              
-              <table class="table table-hover table-bordered" id="sampleTable">
+              <table class="table table-hover table-bordered table-responsive" id="sampleTable">
                 <thead>
 
                   <tr>
                     <th>Reservation ID</th>
                     <th>Book ID</th>
-                    <th>User ID</th>
+                    <th>Student ID</th>
                     <th>Appointment Date</th>
-                    <th>University/Institution</th>
-                 
-
+                    <th>Book Owner</th>
+                    <th>Student Name</th>
+                    <th>College/University</th>
+                    <th>Remarks</th>
                   </tr>
                 </thead>
                 @foreach($reservations as $reservation)
                 <tbody>
                  <tr>
-                    <th>{{ $reservation->id}}</th>
-                    <th>{{ $reservation->book_id }}</th>
-                    <th>{{ $reservation->user_id }}</th>
-                    <th>{{ $reservation->created_at }}</th>
-                    <th>{{ $reservation->expiry_date }}</th>          
-                                     </tr>
+                    <td>{{ $reservation->id}}</td>
+                    <td>{{ $reservation->book_id }}</td>                 
+                    <td>{{ $reservation->student_id }}</td>
+                    <td>{{ $reservation->created_at }}</td>
+                    <td>{{ $reservation->lib_name }}</td>
+                    <td>{{ $reservation->student_name }}</td>
+                    <td>{{ $reservation->college }}</td>   
+                    <td>
+                     @if($reservation->status == 2)
+                    <span class="badge  badge-info"><h6>Borrowed</h6></span>
+                      @elseif($reservation->status == 3)
+                    <span class="badge  badge-danger"><h6>Returned</h6></span>
+                    @endif
+                    </td>      
+                     </tr>
                
                 </tbody>
                 @endforeach

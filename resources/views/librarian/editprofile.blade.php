@@ -117,7 +117,7 @@
                                   <br><div class="form-row">
                                       <div class="input-group">
                                         <div class="input-group-prepend">
-                                          <span class="input-group-text">College/University</span>
+                                          <span class="input-group-text">Institution</span>
                                         </div>
                                          <input type="text" class="form-control" placeholder="College/University" name="coll_univ" value="{{$user->profile->coll_univ ?? ''}}" > 
                                     </div>

@@ -8,6 +8,14 @@
           <h1>Book Management</h1>
         </div> 
       </div>
+      @if(is_null(Auth::user()->profile->coll_univ))
+     <div class="alert alert-warning shadow">
+        <div class="card-body">
+         <b>Please!</b> Update first your Institution before you proceed on adding books.    
+         <a class="" href="{{ route('librarian.profile.show') }}">Click here!</a>     
+        </div>
+    </div>
+    @endif
       @include('librarian.includes.success')
       @include('librarian.includes.error')
       <div class="row">
@@ -33,6 +41,14 @@
                                 </div>
                                  <div class="form-group">
                                   <input type="number" class="form-control" name="book_quantity" placeholder="Number of Copies" required="required">
+                                </div>
+                                 <div class="form-group">
+                                <div class="input-group">
+                                <div class="input-group-prepend">
+                                     <span class="input-group-text">+63</span>
+                                </div>
+                               <input type="phone" pattern="[9]{1}[0-9]{9}" class="form-control" name="call_num" placeholder="Call Number" required="required">
+                                </div>
                                 </div>
                                 <div class="form-group">
                                   <label for="description">Book Description</label>
@@ -80,16 +96,17 @@
 
                   <!-- For Edit -->
                 <div>
-                <h2><i class=""></i> My Uploaded Book</h2>
+                
                 </div> 
                 <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#extraLargeModal" style="margin: 2px"><span class="badge"><i class="fa fa-plus"></i></span> Add Books</button><br><br><br>
 
-              <table class="table table-hover table-bordered" id="sampleTable">
+              <table class="table table-hover table-bordered  table-responsive" id="sampleTable">
                 <thead>
 
                   <tr>
                     <th>No.</th>
                     <th>Book Title</th>
+                    <th>Call Number</th>
                     <th>Book Description</th>
                     <th>Category/Genre</th>
                     <th>Book Author</th>
@@ -117,6 +134,9 @@
                                 </div>
                                 <div class="form-group">
                                   <input type="number" class="form-control" name="edit_book_quantity" placeholder="Number of Copies" required="required"  value="{{ $row->book_quantity }}">
+                                </div>
+                                <div class="form-group">
+                                  <input type="phone" class="form-control" name="edit_call_num" placeholder="Call Number" required="required" value="{{ $row->call_num }}">
                                 </div>
                                 <div class="form-group">
                                   <label for="description">Book Description</label>
@@ -165,6 +185,7 @@
                   <tr>
                     <td>{{ $row->id }}</td>
                     <td>{{ $row->book_name }}</td>
+                    <td>{{ $row->call_num}}</td>
                     <td>{{ $row->book_description }}</td>
                     <td>{{ $row->genre->genre_name }}</td>
                     <td>{{ $row->book_author }}</td>

@@ -25,19 +25,23 @@
 
                   <tr>
                     <th>Reservation ID</th>
-                    <th>Book Name</th>
-                    <th>User ID</th>
-                    <th>Rervation Date</th>
-                    <th>Action</th>
+                    <th>Book ID</th>
+                    <th>Student ID</th>
+                    <th>Appointment Date</th>
+                    <th>Student Name</th>
+                    <th>College/Univeristy</th>
+                    <th>Remarks</th>
                   </tr>
                 </thead>
                 @foreach($reservations as $reservation)
                 <tbody>
                  <tr>
-                    <th>{{ $reservation->id}}</th>
-                    <th>{{ $reservation->book_name}}</th>
-                    <th>{{ $reservation->student_id }}</th>
-                    <th>{{ $reservation->created_at }}</th>
+                    <td>{{ $reservation->id}}</td>
+                    <td>{{ $reservation->book_id }}</td>                 
+                    <td>{{ $reservation->student_id }}</td>
+                    <td>{{ $reservation->created_at }}</td>
+                    <td>{{ $reservation->student_name }}</td>
+                    <td>{{ $reservation->college }}</td>
                      <td>
                       <a href="/lib_reserved/{{$reservation->id}}" type="button" class="btn btn-success">Accepts</a>
                       <a href="/lib_cancelres/{{$reservation->id}}" type="button" class="btn btn-danger">Reject</a>
