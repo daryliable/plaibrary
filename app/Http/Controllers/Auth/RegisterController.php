@@ -78,7 +78,7 @@ class RegisterController extends Controller
             ]);
     
         $user->profile()->save($profile);
-        $user->roles()->attach($request->roles);
+        $user->role()->attach($data->roles);
         return $user;
     }
     
