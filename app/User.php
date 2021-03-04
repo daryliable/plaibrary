@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Hash;
 class User extends Authenticatable
 {
     use LaratrustUserTrait;
-    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','roles','gender','user_id',
+        'name', 'email', 'password','roles','civil','user_id','coll_univ','contact_num','address',
     ];
 
     /**
@@ -39,7 +38,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ]; 
-     
+
+     protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($user){
+            $user->profile()->create([
+            'address' => ' ', 
+            ]);
+     });
+    }
     
     public function profile(){
     return $this->hasOne(Profile::class);
