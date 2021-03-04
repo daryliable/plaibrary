@@ -77,7 +77,7 @@ class RegisterController extends Controller
              'address' => $data['address'],
             ]);
     
-        $user->attachRoles(explode(',', $data['roles']);
+        $user->attachRoles(explode(',', $data['roles']));
         $user->profile()->save($profile);
         return $user;
     }
