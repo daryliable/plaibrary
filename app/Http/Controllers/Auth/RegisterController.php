@@ -80,7 +80,7 @@ class RegisterController extends Controller
         $roles = $data['roles'];  
         $user->attachRoles(explode(',', $roles));
         $user-save();
-        $profile->save();
+       
         return $user;
     }
     
