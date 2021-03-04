@@ -24,7 +24,7 @@ class CreateProfilesTable extends Migration
              $table->string('designation')->nullable();
             $table->string('occupation')->nullable();
             $table->string('coll_univ')->nullable();
-            $table->string('image_url')->nullable();
+            $table->string('image_url')->default('no-image-icon.png');
             $table->timestamps();
 
             $table->index('user_id');
