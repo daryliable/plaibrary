@@ -84,24 +84,24 @@
                     <option value="2">Librarian</option>
                   </select>  
                 
-                  <select class="form-control " style="margin-top: 15px" name="civil">
+                  <!--<select class="form-control " style="margin-top: 15px" name="civil">
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select> 
                
                   
                   <input class="form-control" style="margin-top: 15px" id="name" type="text" class="form-control" name="coll_univ" value="{{ old('name') }}" required autocomplete="name" placeholder="University/Institution">
-                  
+                  -->
                   <input class="form-control" style="margin-top: 15px" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
                   <input class="form-control" style="margin-top: 15px" id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
-                  <input class="form-control" style="margin-top: 15px" type="phone" name="contact_num" placeholder="Mobile Number">
+                 <!--  <input class="form-control" style="margin-top: 15px" type="phone" name="contact_num" placeholder="Mobile Number">
                   <input class="form-control" style="margin-top: 15px" type="address" name="address" placeholder="Address">
-                  <p class="cd-signin-modal__fieldset">
+                  <p class="cd-signin-modal__fieldset">-->
                   <input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Create Account">
                   </p>
                 
               </form>
-            </div> <!-- cd-signin-modal__block -->
+            </div> cd-signin-modal__block -->
 
             <div class="cd-signin-modal__block js-signin-modal-block" data-type="reset"> <!-- reset password form -->
               <p class="cd-signin-modal__message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>

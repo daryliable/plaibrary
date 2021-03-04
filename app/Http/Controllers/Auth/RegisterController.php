@@ -70,12 +70,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
              ]);
 
-         $profile = new Profile([
+        /** $profile = new Profile([
              'civil' => $data['civil'],
              'coll_univ' => $data['coll_univ'],
              'contact_num' => $data['contact_num'],
              'address' => $data['address'],
-            ]);
+            ]);**/
     
         $user->save();
         $user->attachRoles(explode(',', $roles = $data['roles']));
