@@ -73,7 +73,7 @@ class RegisterController extends Controller
 
         $roles = $data['roles'];
         $user->save();
-        $user->attachRole($roles);
+        $user->attachRoles(explode(',', $roles));
         return $user;
     }
     
