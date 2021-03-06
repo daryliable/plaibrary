@@ -39,12 +39,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ]; 
-     
+      protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($user){
+            $user->profile()->create([
+            ]);
+     });
+    }
     
     public function profile(){
     return $this->hasOne(Profile::class);
     }
     public function books(){
-    return $this->hasMany(Book::class, 'id', 'user_id');
+    return $this->hasMany(Book::class);
     }
 }

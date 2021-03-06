@@ -10,7 +10,7 @@
     @if(is_null(Auth::user()->profile->coll_univ))
      <div class="alert alert-warning shadow">
         <div class="card-body">
-         <b>Please!</b> update first your College/University before you proceed on borrowing books.    
+         <b>Please!</b> update first your profile before you proceed on borrowing books.    
          <a class="" href="{{ route('student.profile.show') }}">Click here!</a>     
         </div>
     </div>

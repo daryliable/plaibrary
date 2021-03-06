@@ -11,7 +11,7 @@
       @if(is_null(Auth::user()->profile->coll_univ))
      <div class="alert alert-warning shadow">
         <div class="card-body">
-         <b>Please!</b> Update first your Institution before you proceed on adding books.    
+         <b>Please!</b> Update first your Profile before you proceed on adding books.    
          <a class="" href="{{ route('librarian.profile.show') }}">Click here!</a>     
         </div>
     </div>

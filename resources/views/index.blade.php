@@ -97,11 +97,11 @@
                  <!--  <input class="form-control" style="margin-top: 15px" type="phone" name="contact_num" placeholder="Mobile Number">
                   <input class="form-control" style="margin-top: 15px" type="address" name="address" placeholder="Address">
                   <p class="cd-signin-modal__fieldset">-->
-                  <input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Create Account">
+                  <input style="margin-top: 15px" class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Create Account">
                   </p>
                 
               </form>
-            </div> cd-signin-modal__block -->
+            </div> <!--<cd-signin-modal__block -->
 
             <div class="cd-signin-modal__block js-signin-modal-block" data-type="reset"> <!-- reset password form -->
               <p class="cd-signin-modal__message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>

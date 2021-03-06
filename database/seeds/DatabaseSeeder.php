@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      $this->call([
             LaratrustSeeder::class,
             GenreSeeder::class,
-            ProfileSeeder::class
+           // ProfileSeeder::class
             ]);
     }
   
