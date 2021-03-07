@@ -70,9 +70,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
              ]);
 
-        $user->save();
         $roles = $data['roles'];
         $user->attachRoles(explode(',', $roles));
+        $user->save();
         return $user;
     }
     
