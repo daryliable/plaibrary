@@ -37,10 +37,11 @@
                                   <label for="role">User Role</label>
                                  <select class="form-control" name='roles'>
                                       <option value="" selected="selected">Select A Role</option>  
-                                          <option value="1">Super Admin</option>
-                                          <option value="2">Librarian</option>
-                                          <option value="3">Student/User</option>
-                                      
+                                      @foreach($roles as $key => $role )
+                                       @if($key > 0)
+                                           <option value="{{$role->id}}">{{$role->name}}</option>
+                                        @endif
+                                      @endforeach
                                   </select>
                                 </div>
 
