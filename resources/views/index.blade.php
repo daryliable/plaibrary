@@ -81,8 +81,7 @@
 
                 @foreach($roles as $role )
                   <select  style="margin-top: 15px" class="form-control" name="roles">
-                    <option value="$role->id">{{$role->name}}</option>
-                    <option value="$role->id">{{$role->name}}</option>
+                    <option value="{{$role->id}}">{{$role->name}}</option>
                   </select>  
                 @endforeach
                   <!--<select class="form-control " style="margin-top: 15px" name="civil">
