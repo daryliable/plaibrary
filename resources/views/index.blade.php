@@ -81,8 +81,8 @@
 
               
                   <select  style="margin-top: 15px" class="form-control" name="roles">
-                    @foreach($roles as $role )
-                    @if($role<1)
+                    @foreach($roles as $key => $role )
+                    @if($key > 0)
                     <option value="{{$role->id}}">{{$role->name}}</option>
                     @endif
                     @endforeach
