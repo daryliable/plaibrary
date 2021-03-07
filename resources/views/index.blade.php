@@ -79,11 +79,12 @@
 
                 <input id="email" style="margin-top: 15px" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
 
+                @foreach($roles as $role )
                   <select  style="margin-top: 15px" class="form-control" name="roles">
-                    <option value="3">Student/User</option>
-                    <option value="2">Librarian</option>
+                    <option value="$role->id">{{$role->name}}</option>
+                    <option value="$role->id">{{$role->name}}</option>
                   </select>  
-                
+                @endforeach
                   <!--<select class="form-control " style="margin-top: 15px" name="civil">
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>

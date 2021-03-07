@@ -49,6 +49,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'roles' => ['required'],
            // 'civil' => ['required'],
             //'coll_univ' => ['required'],
            // 'contact_num' => ['required'],
@@ -70,9 +71,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
              ]);
 
+        $user->save();
         $roles = $data['roles'];
         $user->attachRoles(explode(',', $roles));
-        $user->save();
         return $user;
     }
     
