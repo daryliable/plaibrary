@@ -39,13 +39,13 @@
                                   <label>Title</label>
                                   <input type="text" class="form-control" name="bookname" placeholder="Book Name" required="required">
                                 </div>
+                                <div class="form-group">
+                                  <div class="input-group">
+                                    <input type="text" class="form-control" name="call_num" placeholder="Call Number" required="required">
+                                  </div>
                                  <div class="form-group">
                                   <input type="number" class="form-control" name="book_quantity" placeholder="Number of Copies" required="required">
                                 </div>
-                                 <div class="form-group">
-                                  <div class="input-group">
-                                    <input type="number" class="form-control" name="call_num" placeholder="Call Number" required="required">
-                                  </div>
                                 </div>
                                 <div class="form-group">
                                   <label for="description">Book Description</label>
