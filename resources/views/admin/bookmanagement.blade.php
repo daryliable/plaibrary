@@ -36,6 +36,7 @@
                                   <div class="input-group">
                                     <input type="text" class="form-control" name="call_num" placeholder="Call Number" required="required">
                                   </div>
+                                  <br>
                                  <div class="form-group">
                                   <input type="number" class="form-control" name="book_quantity" placeholder="Number of Copies" required="required">
                                 </div>
