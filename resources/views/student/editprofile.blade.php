@@ -44,14 +44,20 @@
                     <div class="input-group-prepend">
                           <span class="input-group-text">Sex</span>
                     </div>
-                    <input name="gender" class="form-control" style="margin-right: 10px" value="{{ $student->profile->gender ?? ''}}">
-
+                    <select class="form-control " style="margin-right: 10px" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    </select>
                     <div class="input-group-prepend">
                           <span class="input-group-text">Civil Status</span>
                     </div>
-                    <input name="civil" class="form-control" value="{{ $student->profile->civil ?? ' '}}">
-                    
-
+                    <select class="form-control " style="margin-right: 10px" name="civil">
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Widowed">Widowed</option>
+                    <option value="Divorced/Separated">Divorced/Separated</option>
+                    </select>
+                  
                   </div>
                   </div>
                   
@@ -60,7 +66,7 @@
                     <div class="input-group-prepend">
                           <span class="input-group-text">Birthdate</span>
                     </div>
-                    <input type="text" class="form-control" id="datepickerprofile" name="birthdate" value="{{ $student->profile->birthdate ?? ''}}" > 
+                    <input type="text" class="form-control" id="datepicker" name="birthdate" value="" > 
                   </div>
                   </div>
                   
@@ -130,4 +136,8 @@
     <script type="text/javascript" src="../js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="../js/plugins/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">$('#sampleTable').DataTable();</script>
-               
+    <script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>           

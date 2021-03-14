@@ -22,6 +22,7 @@ class CreateReservationsTable extends Migration
             $table->string('book_name')->nullable();
             $table->string('student_name')->nullable();
             $table->string('college')->nullable();
+            $table->string('visit')->nullable();
             $table->string('status')->default(0);
             $table->timestamp('start_date')->nullable();
             $table->timestamp('expire_date')->nullable();

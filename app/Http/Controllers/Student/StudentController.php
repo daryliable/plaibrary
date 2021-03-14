@@ -30,6 +30,7 @@ class StudentController extends Controller
         $reservation->lib_id = $librarian->user_id;
         $reservation->lib_name = $librarian->book_uploader;
         $reservation->status = 1;
+        $reservation->visit = request('visit');
         $reservation->student_name = Auth::user()->name;
         $reservation->college = Auth::user()->profile->coll_univ;
         $reservation->student_id = Auth::user()->id;

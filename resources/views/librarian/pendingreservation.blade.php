@@ -39,7 +39,7 @@
                     <td>{{ $reservation->id}}</td>
                     <td>{{ $reservation->book_id }}</td>                 
                     <td>{{ $reservation->student_id }}</td>
-                    <td>{{ $reservation->created_at }}</td>
+                    <td>{{ $reservation->visit }}</td>
                     <td>{{ $reservation->student_name }}</td>
                     <td>{{ $reservation->college }}</td>
                      <td>
