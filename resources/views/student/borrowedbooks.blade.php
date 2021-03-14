@@ -18,9 +18,9 @@
                             <tr>
                               <th>No.</th>
                               <th>Book</th>
-                              <th>Barrowed From</th>
+                              <th>Borrowed From</th>
                               <th>Librarian</th>
-                              <th>Date Barrowed</th>
+                              <th>Date Borrowed</th>
                               <th>Return Date</th>
                               <th>Remarks</th>
                             </tr>
